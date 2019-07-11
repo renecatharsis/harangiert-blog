@@ -1,0 +1,11 @@
+# Global
+.*.swp
+.DS_Store
+
+# PHPStorm
+.idea
+
+# Vagrant
+.vagrant
+
+.env
