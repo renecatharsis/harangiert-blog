@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
-  # config.vm.box_check_update = false
+  config.vm.box_check_update = false
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -44,6 +44,7 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
+  config.vm.synced_folder '.', '/vagrant', disabled: true
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -74,12 +75,6 @@ Vagrant.configure("2") do |config|
     # read lines "var=value" into hash
     # filter lines starting with a hash symbol used as comment line
     compose_env = Hash[*File.read('.env').split(/[=\n]+/).select  { |s| !s.start_with?('#') }]
-  end
-
-  # check if docker-compose plugin was installed
-  if !Vagrant.has_plugin?("vagrant-docker-compose")
-    print "  WARN: Missing plugin 'vagrant-docker-compose'.\n"
-    print "  Use 'vagrant plugin install vagrant-docker-compose' to install.\n"
   end
 
 end

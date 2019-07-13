@@ -5,9 +5,15 @@
 
 ```docker run --rm --interactive --tty --volume $PWD/app:/app composer install```
 
-````docker exec -it harangiert-php-fpm php bin/console doctrine:database:create````
+````docker exec -it harangiert-php-fpm php bin/adminconsole doctrine:database:create --if-not-exists````
 
-```docker exec -it harangiert-php-fpm php bin/console doctrine:migrations:migrate```
+```docker exec -it harangiert-php-fpm php bin/adminconsole sulu:build dev/prod```
+
+```docker exec -it harangiert-php-fpm php bin/adminconsole assets:install```
+
+```docker exec -it harangiert-php-fpm php bin/adminconsole sulu:translate:export```
+
+```docker exec -it harangiert-php-fpm php bin/adminconsole doctrine:migrations:migrate```
 
 ### Add new composer packages
 ```docker run --rm --interactive --tty --volume $PWD/app:/app composer sh```
