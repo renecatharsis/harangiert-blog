@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {% block meta %}{% endblock %}
+
+        {{ encore_entry_link_tags('app') }}
 
         {% block style %}{% endblock %}
     </head>
@@ -44,6 +46,8 @@
                 <p>Copyright {{ 'now'|date('Y') }} SULU</p>
             {% endblock %}
         </footer>
+
+        {{ encore_entry_script_tags('app') }}
 
         {% block javascripts %}{% endblock %}
     </body>
