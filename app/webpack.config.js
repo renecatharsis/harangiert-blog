@@ -37,7 +37,10 @@ Encore
     .enableSassLoader()
 
     // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
+    // .autoProvidejQuery()
+    .autoProvideVariables({
+        $: 'jquery',
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();

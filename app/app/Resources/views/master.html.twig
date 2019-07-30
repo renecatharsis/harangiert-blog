@@ -12,40 +12,39 @@
         {% block style %}{% endblock %}
     </head>
     <body>
-        <header>
-            {% block header %}
-                <nav>
-                    <ul>
-                        <li><a href="{{ sulu_content_root_path() }}">Homepage</a></li>
-                        {% for item in sulu_navigation_root_tree('main') %}
-                            <li>
-                                <a href="{{ sulu_content_path(item.url) }}"
-                                   title="{{ item.title }}">{{ item.title }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </nav>
-            {% endblock %}
-        </header>
+        {% include 'partials/navigation.html.twig' %}
+        {% include 'partials/heading.html.twig' %}
 
-        <form action="{{ path('sulu_search.website_search') }}" method="GET">
-            <input name="q" type="text" placeholder="Search" />
-            <input type="submit" value="Go" />
-        </form>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
 
-        <section id="content" vocab="http://schema.org/" typeof="Content">
-            {% block content %}{% endblock %}
-        </section>
-
-        <aside>
-            {% block aside %}{% endblock %}
-        </aside>
-
+        <!-- Footer -->
         <footer>
-            {% block footer %}
-                <p>Copyright {{ 'now'|date('Y') }} SULU</p>
-            {% endblock %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://www.twitter.com/renecatharsis">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="copyright text-muted">Copyright &copy; Rene Rösch {{ 'now'|date('Y') }}</p>
+                    </div>
+                </div>
+            </div>
         </footer>
+
+        {% include 'partials/cookie_layer.html.twig' %}
 
         {{ encore_entry_script_tags('app') }}
 

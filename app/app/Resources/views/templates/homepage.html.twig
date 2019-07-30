@@ -11,9 +11,23 @@
 {% endblock %}
 
 {% block content %}
-    <h1 property="title">{{ content.title }}</h1>
-
-    <div property="article">
-        {{ content.article|raw }}
+    {% for article in articles %}
+    <div class="post-preview">
+        <a href="{{ article.urls[request.locale] }}">
+            {% set page = sulu_content_load(article.uuid) %}
+            <h2 class="post-title">
+                {{ page.content.heading_title|default('') }}
+            </h2>
+            <h3 class="post-subtitle">
+                {{ page.content.article|default('')|slice(0, 50)|raw }}...
+            </h3>
+        </a>
+        {% set authorObject = sulu_resolve_user(author) %}
+        <p class="post-meta">Veröffentlicht
+            von {{ authorObject.contact.firstName|default('') }}
+            am {{ article.document.published|date('d.m.Y') }}
+        </p>
     </div>
+    <hr>
+    {% endfor %}
 {% endblock %}

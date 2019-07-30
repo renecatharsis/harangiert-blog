@@ -21,12 +21,12 @@ services:
     volumes:
       - "./app:/var/www/html"
     container_name: harangiert-php-fpm
-    environment:
-      - APP_DEBUG=1
     links:
       - mariadb
   mariadb:
     image: mariadb:10.3
+    ports:
+      - "42000:3306"
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}

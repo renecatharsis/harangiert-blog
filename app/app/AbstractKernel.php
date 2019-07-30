@@ -75,6 +75,9 @@ abstract class AbstractKernel extends SuluKernel
 
             // webpack encore
             new Symfony\WebpackEncoreBundle\WebpackEncoreBundle(),
+
+            // custom stuff
+            new AppBundle\AppBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'])) {
