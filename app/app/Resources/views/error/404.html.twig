@@ -1,7 +1,11 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-    <h1>Resource not found</h1>
+    <h1>Verlaufen?</h1>
 
-    <p>The path "<em>{{ request.resourceLocator }}</em>" does not exist.</p>
+    <p>
+        Diese Seite gibt es wohl nicht &#x1F937
+        <br>
+        Starte am besten noch mal <a href="{{ sulu_content_root_path() }}">von vorne</a>.
+    </p>
 {% endblock %}

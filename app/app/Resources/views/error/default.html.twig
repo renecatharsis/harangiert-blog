@@ -1,7 +1,11 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-    <h1>Error {{ status_code }}: {{ status_text }}</h1>
+    <h1>Hoopla &#x1F605</h1>
 
-    <p>{{ exception.message }}</p>
+    <p>
+        Das hätte nicht passieren sollen.
+        <br>
+        Starte am besten noch mal <a href="{{ sulu_content_root_path() }}">von vorne</a>.
+    </p>
 {% endblock %}
