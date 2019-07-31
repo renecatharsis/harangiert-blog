@@ -18,6 +18,8 @@
 ## Installation on classic host
 You only need whatever is inside ``app`` directory!
 
+You need to optimize webserver settings yourself, this repository does not include optimized nginx or apache configs!
+
 ``composer install``
 
 ``php bin/adminconsole doctrine:database:create --if-not-exists``
