@@ -42,7 +42,7 @@ class ArticleManager implements ArticleManagerInterface
     {
         return $this->getClosestSiblingByDateCondition(
             $structure,
-            QueryObjectModelConstantsInterface::JCR_OPERATOR_LESS_THAN
+            QueryObjectModelConstantsInterface::JCR_OPERATOR_LESS_THAN,
         );
     }
 
@@ -50,11 +50,12 @@ class ArticleManager implements ArticleManagerInterface
     {
         return $this->getClosestSiblingByDateCondition(
             $structure,
-            QueryObjectModelConstantsInterface::JCR_OPERATOR_GREATER_THAN
+            QueryObjectModelConstantsInterface::JCR_OPERATOR_GREATER_THAN,
+            'ASC'
         );
     }
 
-    protected function getClosestSiblingByDateCondition(StructureInterface $structure, string $condition): ?StructureInterface
+    protected function getClosestSiblingByDateCondition(StructureInterface $structure, string $condition, string $orderBy = 'DESC'): ?StructureInterface
     {
         $qb = $this->getQueryBuilderForAllPagesByTemplate(Types::ARTICLE);
         $qb = $this->excludeUuid($qb, (string)$structure->getUuid());
@@ -70,7 +71,16 @@ class ArticleManager implements ArticleManagerInterface
                     $condition,
                     $qb->qomf()->literal($structure->getCreated())
                 )
-            );
+            )
+            ->orderBy(
+                $qb->qomf()->propertyValue(
+                    'a',
+                    sprintf(
+                        'i18n:%s-created',
+                        $this->requestAnalyzer->getCurrentLocalization()->getLocale()
+                    )),
+                $orderBy
+        );
 
         $data = $this->executeQuery($qb->getQuery());
 
@@ -92,6 +102,16 @@ class ArticleManager implements ArticleManagerInterface
         if (null !== $excludedUuid) {
             $qb = $this->excludeUuid($qb, $excludedUuid);
         }
+
+        $qb->orderBy(
+            $qb->qomf()->propertyValue(
+                'a',
+                sprintf(
+                    'i18n:%s-created',
+                    $this->requestAnalyzer->getCurrentLocalization()->getLocale()
+                )),
+            'DESC'
+        );
 
         $pages = $this->executeQuery($qb->getQuery());
 
@@ -154,16 +174,6 @@ class ArticleManager implements ArticleManagerInterface
                 QueryObjectModelConstantsInterface::JCR_OPERATOR_EQUAL_TO,
                 $qb->qomf()->literal('sulu:page')
             )
-        );
-
-        $qb->orderBy(
-            $qb->qomf()->propertyValue(
-                'a',
-                sprintf(
-                    'i18n:%s-created',
-                    $this->requestAnalyzer->getCurrentLocalization()->getLocale()
-                )),
-            'DESC'
         );
 
         return $qb;
