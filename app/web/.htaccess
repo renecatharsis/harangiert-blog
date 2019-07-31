@@ -72,5 +72,5 @@ DirectoryIndex website.php
 </IfModule>
 
 <FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|woff2)$">
-    Header set Cache-Control "max-age=604800, public"
+    Header set Cache-Control "max-age=31557600, public"
 </FilesMatch>

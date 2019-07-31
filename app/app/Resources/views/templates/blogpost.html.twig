@@ -25,10 +25,10 @@
             <footer class="block-footer">
                 <div class="clearfix">
                     {% if previousArticle is defined and null != previousArticle %}
-                        <a class="btn btn-primary float-left" href="{{ previousArticle.urls[request.locale] }}"><- Letzter Beitrag</a>
+                        <a class="btn btn-primary float-left" href="{{ previousArticle.urls[request.locale] }}">&larr; Letzter Beitrag</a>
                     {% endif %}
                     {% if nextArticle is defined and null != nextArticle %}
-                        <a class="btn btn-primary float-right" href="{{ nextArticle.urls[request.locale] }}">Nächster Beitrag →</a>
+                        <a class="btn btn-primary float-right" href="{{ nextArticle.urls[request.locale] }}">Nächster Beitrag &rarr;</a>
                     {% endif %}
                 </div>
             </footer>
