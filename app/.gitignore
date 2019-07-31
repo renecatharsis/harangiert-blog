@@ -29,6 +29,7 @@
 /web/js
 /web/bundles
 /web/uploads
+/web/build
 /var/bootstrap.php.cache
 /var/SymfonyRequirements.php
 /web/admin/translations/*
@@ -38,6 +39,7 @@
 /composer.phar
 composer.lock
 /vendor
+/node_modules
 
 # IDEs
 /.idea

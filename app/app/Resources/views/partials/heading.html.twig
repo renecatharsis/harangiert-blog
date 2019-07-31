@@ -1,0 +1,40 @@
+{% if content.heading_background is defined and content.heading_background|length > 0 %}
+    {% set image = (content.heading_background|first) %}
+    {% set defaultImage = image.thumbnails["1920x1080"] %}
+{#    {% set breakpoints = {#}
+{#        "(min-width: 1300px)" : [#}
+{#            asset(image.thumbnails['1920x670']),#}
+{#            asset(image.thumbnails["3840x1340"])#}
+{#        ],#}
+{#        "(max-width: 1299px)" : [#}
+{#            asset(image.thumbnails["1435x500"]),#}
+{#            asset(image.thumbnails["2870x1000"])#}
+{#        ],#}
+{#        "(max-width: 480px)" : [#}
+{#            asset(image.thumbnails["860x300"]),#}
+{#            asset(image.thumbnails["1720x600"])#}
+{#        ]#}
+{#    } %}#}
+{% endif %}
+
+<header class="masthead" {% if defaultImage is defined %}style="background-image: url('{{ asset(defaultImage) }}')"{% endif %}>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="{% if 'blogpost' == template %}post-heading{% else %}site-heading{% endif %}">
+                    <h1>{{ content.heading_title|default('') }}</h1>
+                    <span class="subheading">{{ content.heading_sub|default('') }}</span>
+                    {% if 'blogpost' == template %}
+                        <span class="meta">
+                            {% set authorObject = sulu_resolve_user(author) %}
+                            Veröffentlicht
+                            von {{ authorObject.contact.firstName|default('') }}
+                            am {{ created|date('d.m.Y') }}
+                        </span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
