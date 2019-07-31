@@ -19,14 +19,14 @@
                 {{ page.content.heading_title|default('') }}
             </h2>
             <h3 class="post-subtitle">
-                {{ page.content.article|default('')|slice(0, 50)|raw }}...
+                {{ page.content.article|default('')|slice(0, 100)|raw }}...
             </h3>
         </a>
         {% set authorObject = sulu_resolve_user(author) %}
-        <p class="post-meta">Veröffentlicht
+        <span class="post-meta">Veröffentlicht
             von {{ authorObject.contact.firstName|default('') }}
             am {{ article.document.published|date('d.m.Y') }}
-        </p>
+        </span>
     </div>
     <hr>
     {% endfor %}
