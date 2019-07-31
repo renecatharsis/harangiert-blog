@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://schemas.sulu.io/template/template"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd"
+         name="heading">
+<meta>
+    <title lang="en">Heading settings</title>
+    <title lang="de">Heading Einstellungen</title>
+</meta>
+<properties>
+    <property name="heading_title" type="text_line">
+        <meta>
+            <title lang="en">Heading Title</title>
+            <title lang="de">Heading Titel</title>
+        </meta>
+    </property>
+
+    <property name="heading_sub" type="text_line">
+        <meta>
+            <title lang="en">Heading Subheadline</title>
+            <title lang="de">Heading Subheadline</title>
+        </meta>
+    </property>
+
+    <property name="heading_background" type="media_selection">
+        <meta>
+            <title lang="en">Heading Background image</title>
+            <title lang="de">Heading Hintergrundbild</title>
+        </meta>
+    </property>
+</properties>
+</section>

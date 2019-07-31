@@ -1,0 +1,37 @@
+{% extends "master.html.twig" %}
+
+{% block meta %}
+    {% include "SuluWebsiteBundle:Extension:seo.html.twig" with {
+        "seo": extension.seo|default([]),
+        "content": content|default([]),
+        "urls": urls|default([]),
+        "shadowBaseLocale": shadowBaseLocale|default(),
+        "defaultLocale": request.defaultLocale|default('de')
+    } %}
+{% endblock %}
+
+{% block content %}
+    {% set authorObject = sulu_resolve_user(author) %}
+    <section class="module-blog block-blog-index">
+        <article itemscope itemtype="http://schema.org/Blog" role="main">
+            <meta itemprop="author" content="{{ authorObject.contact.firstName|default('') ~ ' ' ~ authorObject.contact.lastName|default('') }}">
+
+            <h1 class="section-heading">{{ content.title }}</h1>
+
+            <div class="block-body" itemprop="articleBody">
+                {{ content.article|raw }}
+            </div>
+
+            <footer class="block-footer">
+                <div class="clearfix">
+                    {% if previousArticle is defined and null != previousArticle %}
+                        <a class="btn btn-primary float-left" href="{{ previousArticle.urls[request.locale] }}"><- Letzter Beitrag</a>
+                    {% endif %}
+                    {% if nextArticle is defined and null != nextArticle %}
+                        <a class="btn btn-primary float-right" href="{{ nextArticle.urls[request.locale] }}">Nächster Beitrag →</a>
+                    {% endif %}
+                </div>
+            </footer>
+        </article>
+    </section>
+{% endblock %}
