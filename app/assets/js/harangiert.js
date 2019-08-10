@@ -1,34 +1,39 @@
-const $ = require('jquery');
-
-(function($) {
+(function() {
   "use strict";
 
   // Show the navbar when the page is scrolled up
-  var MQL = 992;
+  let MQL = 992;
 
   //primary navigation slide-in effect
-  if ($(window).width() > MQL) {
-    let headerHeight = $('#mainNav').height();
-    $(window).on('scroll', {
-        previousTop: 0
-      },
-      function() {
-        let currentTop = $(window).scrollTop();
-        let mainNav = $('#mainNav');
-        //check if user is scrolling up
-        if (currentTop < this.previousTop) {
-          //if scrolling up...
-          if (currentTop > 0 && mainNav.hasClass('is-fixed')) {
-            mainNav.addClass('is-visible');
-          } else {
-            mainNav.removeClass('is-visible is-fixed');
+  if (document.documentElement.clientWidth > MQL) {
+    let mainNavStyles = getComputedStyle(document.getElementById('mainNav'));
+    let headerHeight = parseInt(mainNavStyles.height.replace('px', ''))
+        - parseInt(mainNavStyles.paddingTop.replace('px', ''))
+        - parseInt(mainNavStyles.paddingBottom.replace('px', ''))
+        - parseInt(mainNavStyles.borderBottomWidth.replace('px', ''));
+
+    let previousTop = 0;
+    window.addEventListener('scroll', function() {
+          let currentTop = document.documentElement.scrollTop;
+          let mainNav = document.getElementById('mainNav');
+          //check if user is scrolling up
+          if (currentTop < previousTop) {
+            //if scrolling up...
+            if (currentTop > 0 && mainNav.classList.contains('is-fixed')) {
+              mainNav.classList.add('is-visible');
+            } else {
+              mainNav.classList.remove('is-visible');
+              mainNav.classList.remove('is-fixed');
+            }
+          } else if (currentTop > previousTop) {
+            //if scrolling down...
+            mainNav.classList.remove('is-visible');
+            if (currentTop > headerHeight && !mainNav.classList.contains('is-fixed')) {
+              mainNav.classList.add('is-fixed');
+            }
           }
-        } else if (currentTop > this.previousTop) {
-          //if scrolling down...
-          mainNav.removeClass('is-visible');
-          if (currentTop > headerHeight && !mainNav.hasClass('is-fixed')) mainNav.addClass('is-fixed');
-        }
-        this.previousTop = currentTop;
-      });
+
+          previousTop = currentTop;
+        });
   }
-})($);
+})();
