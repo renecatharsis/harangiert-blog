@@ -1,9 +1,8 @@
 // assets/js/app.js
 
 require('../css/app.scss');
+require('blueimp-gallery/css/blueimp-gallery.min.css');
 
-require('jquery');
-require('bootstrap');
 require('bootstrap-cookie-alert/cookiealert.js');
-
-require('./harangiert.js');
+require('./scrolling.js');
+require('./gallery.js');
