@@ -5,6 +5,7 @@
     "sass-loader": "^7.0.1"
   },
   "dependencies": {
+    "blueimp-gallery": "^2.34.1",
     "bootstrap-cookie-alert": "^1.1.1",
     "bootstrap-css-only": "^4.3.1"
   }

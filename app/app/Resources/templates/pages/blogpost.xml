@@ -50,5 +50,17 @@
                 <title lang="de">Artikel</title>
             </meta>
         </property>
+
+        <block name="blocks" default-type="text" minOccurs="0">
+            <meta>
+                <title lang="en">Sections</title>
+                <title lang="de">Sektionen</title>
+            </meta>
+
+            <types>
+                <xi:include href="blocks/gallery.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            </types>
+        </block>
     </properties>
 </template>
