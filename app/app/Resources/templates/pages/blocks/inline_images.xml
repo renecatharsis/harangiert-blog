@@ -1,0 +1,25 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks">
+        <types>
+            <type name="inline_images">
+                <meta>
+                    <title lang="en">Inline images</title>
+                    <title lang="de">Inline Bilder</title>
+                </meta>
+                <properties>
+                    <property name="images" type="media_selection">
+                        <meta>
+                            <title lang="en">Inline images (max. 3)</title>
+                            <title lang="de">Inline Bilder (max. 3)</title>
+                        </meta>
+                        <params>
+                            <param name="types" value="image"/>
+                        </params>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

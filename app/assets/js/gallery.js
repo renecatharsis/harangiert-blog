@@ -5,5 +5,6 @@ galleries.forEach(function (gallery) {
     blueimpGallery(JSON.parse(gallery.getAttribute('data-sources')), {
         container: '#' + gallery.getAttribute('id'),
         carousel: true,
+        startSlideshow: false,
     });
 });

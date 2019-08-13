@@ -44,13 +44,6 @@
         <xi:include href="./shared/heading.xml"
                     xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:section)"/>
 
-        <property name="article" type="text_editor">
-            <meta>
-                <title lang="en">Article</title>
-                <title lang="de">Artikel</title>
-            </meta>
-        </property>
-
         <block name="blocks" default-type="text" minOccurs="0">
             <meta>
                 <title lang="en">Sections</title>
@@ -58,6 +51,10 @@
             </meta>
 
             <types>
+                <xi:include href="blocks/article.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                <xi:include href="blocks/inline_images.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
                 <xi:include href="blocks/gallery.xml"
                     xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
             </types>

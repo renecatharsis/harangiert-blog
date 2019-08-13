@@ -23,14 +23,44 @@
         <scale x="3264" y="2448"/>
     </format>
 
-    <format key="1632x1224">
+    <format key="408x306">
+        <meta>
+            <!-- It also has a translated title -->
+            <title lang="en">Article inline image (for one in a row)</title>
+            <title lang="de">Artikel Inline Bild (für eines in einer Zeile)</title>
+        </meta>
+        <!-- The key is used to access the image format from Twig. -->
+        <scale x="408" y="306"/>
+    </format>
+
+    <format key="370x277">
+        <meta>
+            <!-- It also has a translated title -->
+            <title lang="en">Article inline image (for two in a row)</title>
+            <title lang="de">Artikel Inline Bild (für zwei in einer Zeile)</title>
+        </meta>
+        <!-- The key is used to access the image format from Twig. -->
+        <scale x="370" y="277"/>
+    </format>
+
+    <format key="243x182">
+        <meta>
+            <!-- It also has a translated title -->
+            <title lang="en">Article inline image (for three in a row)</title>
+            <title lang="de">Artikel Inline Bild (für drei in einer Zeile)</title>
+        </meta>
+        <!-- The key is used to access the image format from Twig. -->
+        <scale x="243" y="182"/>
+    </format>
+
+    <format key="547x410">
         <meta>
             <!-- It also has a translated title -->
             <title lang="en">iPhone 6 Gallery image</title>
             <title lang="de">iPhone 6 Gallerie Bild</title>
         </meta>
         <!-- The key is used to access the image format from Twig. -->
-        <scale x="1632" y="1224"/>
+        <scale x="547" y="410"/>
     </format>
 
     <format key="102x76">
@@ -43,15 +73,15 @@
         <scale x="102" y="76"/>
     </format>
 
-<!--    <format key="1920x1080">-->
-<!--        <meta>-->
-<!--            &lt;!&ndash; It also has a translated title &ndash;&gt;-->
-<!--            <title lang="de">Header Image Groß - Desktop</title>-->
-<!--            <title lang="en">Header Image Large - Desktop</title>-->
-<!--        </meta>-->
-<!--        &lt;!&ndash; The key is used to access the image format from Twig. &ndash;&gt;-->
-<!--        <scale x="1920" y="1080"/>-->
-<!--    </format>-->
+    <format key="1920x1080">
+        <meta>
+            <!-- It also has a translated title -->
+            <title lang="de">Header Image Groß - Desktop</title>
+            <title lang="en">Header Image Large - Desktop</title>
+        </meta>
+        <!-- The key is used to access the image format from Twig. -->
+        <scale x="1920" y="1080"/>
+    </format>
 
 <!--    <format key="3840x2160">-->
 <!--        <meta>-->

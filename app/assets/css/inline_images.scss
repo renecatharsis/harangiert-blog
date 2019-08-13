@@ -1,0 +1,17 @@
+.harangiert-inline-images {
+  padding-left: 15px;
+
+  &:last-child {
+    padding-right: 15px;
+  }
+}
+
+.harangiert-img-fluid {
+  max-width: 120%;
+  height: auto;
+
+  padding: 0.25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+}
