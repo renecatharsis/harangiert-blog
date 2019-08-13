@@ -1,0 +1,23 @@
+{% if block.images|length == 3 %}
+    {% set format = '243x182' %}
+    {% set width = 'w-50' %}
+{% elseif block.images|length == 2 %}
+    {% set format = '370x277' %}
+    {% set width = 'w-50' %}
+{% else %}
+    {% set format = '408x306' %}
+    {% set width = '' %}
+{% endif %}
+
+<div class="d-flex justify-content-around">
+{% for image in block.images %}
+<div class="{{ width }}">
+    <a href="{{ image.formats['3264x2448'] }}" title="{{ image.title }}" target="_blank" rel="noopener">
+        <figure class="figure">
+            <img alt="{{ image.title }}" src="{{ image.formats[format] }}" class="img-thumbnail" />
+            <figcaption class="figure-caption text-center font-weight-bold">{{ image.description }}</figcaption>
+        </figure>
+    </a>
+</div>
+{% endfor %}
+</div>

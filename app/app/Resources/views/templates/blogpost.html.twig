@@ -15,12 +15,7 @@
     <section class="module-blog block-blog-index">
         <article itemscope itemtype="http://schema.org/Blog" role="main">
             <meta itemprop="author" content="{{ authorObject.contact.firstName|default('') ~ ' ' ~ authorObject.contact.lastName|default('') }}">
-
             <h1 class="section-heading">{{ content.title }}</h1>
-
-            <div class="block-body" itemprop="articleBody">
-                {{ content.article|raw }}
-            </div>
 
             {% if content.blocks|length > 0 %}
                 {% for block in content.blocks %}
