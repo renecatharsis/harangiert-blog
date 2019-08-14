@@ -11,7 +11,9 @@
 {% endblock %}
 
 {% block content %}
-    {% include 'partials/map.html.twig' %}
+{#    {% cache 'v1' 10000 %}#}
+        {% include 'partials/map.html.twig' %}
+{#    {% endcache %}#}
 
     {% for article in articles %}
     <div class="post-preview">
