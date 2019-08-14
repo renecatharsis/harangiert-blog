@@ -6,13 +6,13 @@
 
   //primary navigation slide-in effect
   if (document.documentElement.clientWidth > MQL) {
+    let previousTop = 0;
     let mainNavStyles = getComputedStyle(document.getElementById('mainNav'));
     let headerHeight = parseInt(mainNavStyles.height.replace('px', ''))
         - parseInt(mainNavStyles.paddingTop.replace('px', ''))
         - parseInt(mainNavStyles.paddingBottom.replace('px', ''))
         - parseInt(mainNavStyles.borderBottomWidth.replace('px', ''));
 
-    let previousTop = 0;
     window.addEventListener('scroll', function() {
           let currentTop = document.documentElement.scrollTop;
           let mainNav = document.getElementById('mainNav');

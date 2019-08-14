@@ -11,6 +11,8 @@
 {% endblock %}
 
 {% block content %}
+    {% include 'partials/map.html.twig' %}
+
     {% for article in articles %}
     <div class="post-preview">
         <a href="{{ article.urls[request.locale] }}">
