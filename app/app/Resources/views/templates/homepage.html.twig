@@ -11,9 +11,9 @@
 {% endblock %}
 
 {% block content %}
-{#    {% cache 'v1' 10000 %}#}
+    {% cache 'map' map_cache_lifetime %}
         {% include 'partials/map.html.twig' %}
-{#    {% endcache %}#}
+    {% endcache %}
 
     {% for article in articles %}
     <div class="post-preview">

@@ -9,4 +9,5 @@ interface ArticleManagerInterface
     public function getLatest(int $amount = null, string $excludedUuid = null): array;
     public function getPrevious(StructureInterface $structure): ?StructureInterface;
     public function getNext(StructureInterface $structure): ?StructureInterface;
+    public function getByStopName(string $stopName): ?StructureInterface;
 }

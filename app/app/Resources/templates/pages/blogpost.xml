@@ -44,6 +44,13 @@
         <xi:include href="./shared/heading.xml"
                     xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:section)"/>
 
+        <property name="stop" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Stop name</title>
+                <title lang="de">Name der Haltestelle</title>
+            </meta>
+        </property>
+
         <block name="blocks" default-type="text" minOccurs="0">
             <meta>
                 <title lang="en">Sections</title>
