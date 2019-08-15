@@ -1,0 +1,14 @@
+.map-draggable {
+  cursor: pointer;
+  border: 5px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+
+  &:active {
+    cursor: move;
+  }
+
+  a.text-underline {
+    text-decoration: underline;
+  }
+}

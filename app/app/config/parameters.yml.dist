@@ -32,3 +32,6 @@ parameters:
     phpcr_user: admin
     phpcr_pass: admin
     phpcr_cache: file_system
+
+    # cache lifetime for map on homepage
+    map_cache_lifetime: 86400

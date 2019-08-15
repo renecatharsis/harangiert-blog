@@ -21,8 +21,8 @@ class GalleryExtension extends AbstractExtension
         foreach ($sources as $source) {
             /** @var Media $source */
             $images[] = [
-                'title' => $source->getTitle(),
-                'href' => $source->getFormats()['1632x1224'],
+                'title' => $source->getDescription(),
+                'href' => $source->getFormats()['547x410'],
                 'thumbnail' => $source->getFormats()['102x76'],
             ];
         }

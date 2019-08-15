@@ -55,6 +55,31 @@ class ArticleManager implements ArticleManagerInterface
         );
     }
 
+    public function getByStopName(string $stopName): ?StructureInterface
+    {
+        $qb = $this->getQueryBuilder();
+        $qb
+            ->setMaxResults(1)
+            ->andWhere(
+                $qb->qomf()->comparison(
+                    $qb->qomf()->propertyValue('node', sprintf(
+                        'i18n:%s-stop',
+                        $this->requestAnalyzer->getCurrentLocalization()->getLocale()
+                    )),
+                    QueryObjectModelConstantsInterface::JCR_OPERATOR_EQUAL_TO,
+                    $qb->qomf()->literal($stopName)
+                )
+            );
+
+        $pages = $this->executeQuery($qb->getQuery());
+
+        if (0 === count($pages)) {
+            return null;
+        }
+
+        return current($pages);
+    }
+
     protected function getClosestSiblingByDateCondition(StructureInterface $structure, string $condition, string $orderBy = 'DESC'): ?StructureInterface
     {
         $qb = $this->getQueryBuilderForAllPagesByTemplate(Types::ARTICLE);
@@ -64,7 +89,7 @@ class ArticleManager implements ArticleManagerInterface
             ->setMaxResults(1)
             ->andWhere(
                 $qb->qomf()->comparison(
-                    $qb->qomf()->propertyValue('a', sprintf(
+                    $qb->qomf()->propertyValue('node', sprintf(
                         'i18n:%s-created',
                         $this->requestAnalyzer->getCurrentLocalization()->getLocale()
                     )),
@@ -74,7 +99,7 @@ class ArticleManager implements ArticleManagerInterface
             )
             ->orderBy(
                 $qb->qomf()->propertyValue(
-                    'a',
+                    'node',
                     sprintf(
                         'i18n:%s-created',
                         $this->requestAnalyzer->getCurrentLocalization()->getLocale()
@@ -105,7 +130,7 @@ class ArticleManager implements ArticleManagerInterface
 
         $qb->orderBy(
             $qb->qomf()->propertyValue(
-                'a',
+                'node',
                 sprintf(
                     'i18n:%s-created',
                     $this->requestAnalyzer->getCurrentLocalization()->getLocale()
@@ -133,7 +158,7 @@ class ArticleManager implements ArticleManagerInterface
 
         $qb->andWhere(
             $qb->qomf()->comparison(
-                $qb->qomf()->propertyValue('a', sprintf(
+                $qb->qomf()->propertyValue('node', sprintf(
                     'i18n:%s-template',
                     $this->requestAnalyzer->getCurrentLocalization()->getLocale()
                 )),
@@ -149,7 +174,7 @@ class ArticleManager implements ArticleManagerInterface
     {
         return $qb->andWhere(
             $qb->qomf()->comparison(
-                $qb->qomf()->propertyValue('a', 'jcr:uuid'),
+                $qb->qomf()->propertyValue('node', 'jcr:uuid'),
                 QueryObjectModelConstantsInterface::JCR_OPERATOR_NOT_EQUAL_TO,
                 $qb->qomf()->literal($uuid)
             )
@@ -165,12 +190,12 @@ class ArticleManager implements ArticleManagerInterface
         $qb = new QueryBuilder($qf);
 
         $qb->from(
-            $qb->qomf()->selector('a', 'nt:unstructured')
+            $qb->qomf()->selector('node', 'nt:unstructured')
         );
 
         $qb->andWhere(
             $qb->qomf()->comparison(
-                $qb->qomf()->propertyValue('a', 'jcr:mixinTypes'),
+                $qb->qomf()->propertyValue('node', 'jcr:mixinTypes'),
                 QueryObjectModelConstantsInterface::JCR_OPERATOR_EQUAL_TO,
                 $qb->qomf()->literal('sulu:page')
             )

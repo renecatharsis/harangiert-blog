@@ -11,6 +11,10 @@
 {% endblock %}
 
 {% block content %}
+    {% cache 'map' map_cache_lifetime %}
+        {% include 'partials/map.html.twig' %}
+    {% endcache %}
+
     {% for article in articles %}
     <div class="post-preview">
         <a href="{{ article.urls[request.locale] }}">
