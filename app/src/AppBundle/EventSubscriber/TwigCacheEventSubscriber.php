@@ -7,6 +7,7 @@ use Asm89\Twig\CacheExtension\CacheStrategy\LifetimeCacheStrategy;
 use Asm89\Twig\CacheExtension\Extension as CacheExtension;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Twig\Environment;
 
@@ -31,8 +32,12 @@ class TwigCacheEventSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function registerTwigCacheExtension()
+    public function registerTwigCacheExtension(GetResponseEvent $event)
     {
+        if (!$event->isMasterRequest()) {
+            return;
+        }
+
         $cacheProvider  = new PsrCacheAdapter($this->cachePool);
         $cacheStrategy  = new LifetimeCacheStrategy($cacheProvider);
         $cacheExtension = new CacheExtension($cacheStrategy);
