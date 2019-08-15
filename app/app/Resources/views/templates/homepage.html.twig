@@ -23,7 +23,7 @@
                 {{ page.content.heading_title|default('') }}
             </h2>
             <h3 class="post-subtitle">
-                {{ page.content.article|default('')|slice(0, 100)|raw }}...
+                {{ get_article_text(page)|default('')|slice(0, 200)|raw }}...
             </h3>
         </a>
         {% set authorObject = sulu_resolve_user(author) %}
