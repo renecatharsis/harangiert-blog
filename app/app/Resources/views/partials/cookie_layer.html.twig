@@ -2,9 +2,11 @@
 {% if null != cookieLayer %}
 <div class="alert text-center cookiealert position-fixed" role="alert">
     {{ cookieLayer.content.cookielayer_text|filter_rich_text|raw }}
-
-    <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">
-        {{ cookieLayer.content.cookielayer_button }}
+    <button type="button" class="btn btn-primary btn-sm cookie-button" data-cookie="true" aria-label="Close">
+        {{ cookieLayer.content.cookielayer_button_accept }}
+    </button>
+    <button type="button" class="btn btn-link cookie-button" data-cookie="false" aria-label="Close">
+        {{ cookieLayer.content.cookielayer_button_decline }}
     </button>
 </div>
 {% endif %}
