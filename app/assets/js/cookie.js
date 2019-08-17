@@ -22,7 +22,7 @@
             cookieAlert.classList.remove("show");
 
             if ('true' === accepted) {
-                gaOptin();
+                trackingOptIn();
             }
         });
     }
