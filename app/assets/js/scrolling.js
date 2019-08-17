@@ -14,7 +14,7 @@
         - parseInt(mainNavStyles.borderBottomWidth.replace('px', ''));
 
     window.addEventListener('scroll', function() {
-          let currentTop = document.documentElement.scrollTop;
+          let currentTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
           let mainNav = document.getElementById('mainNav');
           //check if user is scrolling up
           if (currentTop < previousTop) {
