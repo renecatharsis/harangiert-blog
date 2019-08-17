@@ -27,10 +27,17 @@
             </meta>
         </property>
 
-        <property name="cookielayer_button" type="text_line">
+        <property name="cookielayer_button_accept" type="text_line">
             <meta>
-                <title lang="en">Button Text</title>
-                <title lang="de">Button Text</title>
+                <title lang="en">Button Text (accept)</title>
+                <title lang="de">Button Text (zustimmen)</title>
+            </meta>
+        </property>
+
+        <property name="cookielayer_button_decline" type="text_line">
+            <meta>
+                <title lang="en">Button Text (decline)</title>
+                <title lang="de">Button Text (ablehnen)</title>
             </meta>
         </property>
     </properties>

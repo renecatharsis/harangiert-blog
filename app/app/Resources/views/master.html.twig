@@ -60,6 +60,47 @@
 
         {{ encore_entry_script_tags('app') }}
 
+        <script>
+            let acceptCookiesName = 'acceptCookies';
+            let gaProperty = 'UA-97883968-2';
+            let disableStr = 'ga-disable-' + gaProperty;
+            if (document.cookie.indexOf(disableStr + '=true') > -1 ||
+                document.cookie.indexOf(acceptCookiesName) === -1 ||
+                (document.cookie.indexOf(acceptCookiesName + '=false') > -1)
+            ) {
+                window[disableStr] = true;
+            }
+
+            function gaOptin() {
+                document.cookie = disableStr + '=true;' + getInvalidCookie();
+                window.location.reload();
+            }
+
+            function gaOptout() {
+                document.cookie = acceptCookiesName + '=;' + getInvalidCookie();
+                document.cookie = '_ga=;' + getInvalidCookie();
+                document.cookie = '_gat=;' + getInvalidCookie();
+                document.cookie = '_gid=;' + getInvalidCookie();
+
+                document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+                window[disableStr] = true;
+                window.location.reload();
+            }
+
+            function getInvalidCookie() {
+                return ' expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+            }
+
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', gaProperty, 'auto');
+            ga('set', 'anonymizeIp', true);
+            ga('send', 'pageview');
+        </script>
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>
