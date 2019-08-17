@@ -66,7 +66,7 @@
             }
 
             function trackingOptOut() {
-                if (_paq) {
+                if (typeof _paq !== 'undefined') {
                     _paq.push(['forgetConsentGiven']);
                 }
 
