@@ -15,6 +15,10 @@
         {% block style %}{% endblock %}
 
         <script>
+            var _paq = window._paq || [];
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+
             if (document.cookie.indexOf('acceptCookies=true') > -1 ) {
                 insertTracking();
             }
@@ -23,18 +27,26 @@
                 insertTracking();
             }
 
-            function trackingOptOut() {
+            function trackingOptOut(event) {
+                if (typeof event !== 'undefined') {
+                    event.preventDefault();
+                }
+
                 if (typeof _paq !== 'undefined') {
                     _paq.push(['forgetConsentGiven']);
                 }
 
-                document.cookie = 'acceptCookies=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+                let cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    let cookie = cookies[i];
+                    let eqPos = cookie.indexOf('=');
+                    let name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+
+                    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+                }
             }
 
             function insertTracking() {
-                var _paq = window._paq || [];
-                _paq.push(['trackPageView']);
-                _paq.push(['enableLinkTracking']);
                 (function() {
                     var u="//www.harangiert.de/matomo/";
                     _paq.push(['setTrackerUrl', u+'matomo.php']);
