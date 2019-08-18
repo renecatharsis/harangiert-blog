@@ -30,7 +30,6 @@ class MapExtension extends AbstractExtension
         $page = $this->articleManager->getByStopName($stopName);
         $attributes = [
             'href' => '',
-            'target' => '_self',
             'class' => '',
             'onclick' => 'return false;'
         ];
@@ -38,16 +37,14 @@ class MapExtension extends AbstractExtension
         if (null !== $page) {
             $attributes = [
                 'href' => $page->getUrl(),
-                'target' => '_blank',
                 'class' => 'text-underline',
                 'onclick' => ';'
             ];
         }
 
         return sprintf(
-            'xlink:href="%s" target="%s" class="%s", onclick="%s"',
+            'xlink:href="%s" class="%s", onclick="%s"',
             $attributes['href'],
-            $attributes['target'],
             $attributes['class'],
             $attributes['onclick']
         );

@@ -721,9 +721,9 @@
     source-map "^0.6.1"
 
 "@types/webpack@^3.0.0 || ^4.0.0":
-  version "4.32.1"
-  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.32.1.tgz#6e95010e806f808abd6551c112097ac09035aacf"
-  integrity sha512-9n38CBx9uga1FEAdTipnt0EkbKpsCJFh7xJb1LE65FFb/A6OOLFX022vYsGC1IyVCZ/GroNg9u/RMmlDxGcLIw==
+  version "4.32.2"
+  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.32.2.tgz#e0f1ce77b2f13fe5d9cfd3fcf4b99aee3f92ac51"
+  integrity sha512-KZyRrE2XxE/buUNKFhSxqCqLQ+QMCe/AX/edeQtnFuSCucxPkb8cVgmPecGdOIgoL1Z7KgCgrwVg0BMJbZr5aw==
   dependencies:
     "@types/anymatch" "*"
     "@types/node" "*"
@@ -1229,9 +1229,9 @@ bluebird@^3.5.5:
   integrity sha512-5am6HnnfN+urzt4yfg7IgTbotDjIT/u8AJpEt0sIU9FtXfVeezXAPKswrG+xKUCOYAINpSdgZVDU6QFh+cuH3w==
 
 blueimp-gallery@^2.34.1:
-  version "2.34.1"
-  resolved "https://registry.yarnpkg.com/blueimp-gallery/-/blueimp-gallery-2.34.1.tgz#344cced1329f7a4b155c892504a108cdb32071b0"
-  integrity sha512-Ezdf8AA55WY31lBHGVrDI4c58U0wLuxQnU0+PK950tnPve+f5r2MVoHrArdq1GPdnTqF95w1mU4pfVcIv+69fg==
+  version "2.34.2"
+  resolved "https://registry.yarnpkg.com/blueimp-gallery/-/blueimp-gallery-2.34.2.tgz#6a00edf9ee50e16c549684544c374d59422d0102"
+  integrity sha512-JHlguWzSaNWIDXehBfQCwAs1w3w5qn6hydQIlZX8622aIav+48r5Y50ebn0cwyvTEcyGA33mmX+I/umwzL6J/g==
 
 bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
   version "4.11.8"
@@ -2369,9 +2369,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.191:
-  version "1.3.229"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.229.tgz#accc9a08dd07d0a4d6c76937821bc94eb2e49eae"
-  integrity sha512-N6pUbSuKFBeUifxBZp9hODS1N9jFobJYW47QT2VvZIr+G5AWnHK/iG3ON9RPRGH7lHDQ6KUDVhzpNkj4ZiznoA==
+  version "1.3.233"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.233.tgz#d12a0cabe68de4888c97fcb2b0040c50f5e5c212"
+  integrity sha512-5SGW8BObcSmsWHWBAEkBUHKQhBV3vR8MyLZ0ZHOQqh9lHAeD+l5Muosd07AIot7M4JmMblO7ezetxiN1G1/ACg==
 
 elliptic@^6.0.0:
   version "6.5.0"
@@ -4828,9 +4828,9 @@ pkg-up@^1.0.0:
     find-up "^1.0.0"
 
 portfinder@^1.0.21:
-  version "1.0.21"
-  resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.21.tgz#60e1397b95ac170749db70034ece306b9a27e324"
-  integrity sha512-ESabpDCzmBS3ekHbmpAIiESq3udRsCBGiBZLsC+HgBKv2ezb0R4oG+7RnYEVZ/ZCfhel5Tx3UzdNWA0Lox2QCA==
+  version "1.0.22"
+  resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.22.tgz#abd10a488b5696e98ee25c60731f8ae0b76f8ddd"
+  integrity sha512-aZuwaz9ujJsyE8C5kurXAD8UmRxsJr+RtZWyQRvRk19Z2ri5uuHw5YS4tDBZrJlOS9Zw96uAbBuPb6W4wgvV5A==
   dependencies:
     async "^1.5.2"
     debug "^2.2.0"
@@ -6649,9 +6649,9 @@ webpack-chunk-hash@^0.6.0:
     "@types/webpack" "^3.0.0 || ^4.0.0"
 
 webpack-cli@^3.0.0:
-  version "3.3.6"
-  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-3.3.6.tgz#2c8c399a2642133f8d736a359007a052e060032c"
-  integrity sha512-0vEa83M7kJtxK/jUhlpZ27WHIOndz5mghWL2O53kiDoA9DIxSKnfqB92LoqEn77cT4f3H2cZm1BMEat/6AZz3A==
+  version "3.3.7"
+  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-3.3.7.tgz#77c8580dd8e92f69d635e0238eaf9d9c15759a91"
+  integrity sha512-OhTUCttAsr+IZSMVwGROGRHvT+QAs8H6/mHIl4SvhAwYywjiylYjpwybGx7WQ9Hkb45FhjtsymkwiRRbGJ1SZQ==
   dependencies:
     chalk "2.4.2"
     cross-spawn "6.0.5"
