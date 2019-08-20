@@ -38,9 +38,9 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     // .autoProvidejQuery()
-    .autoProvideVariables({
-        $: 'jquery',
-    })
+    // .autoProvideVariables({
+    //     $: 'jquery',
+    // })
 ;
 
 module.exports = Encore.getWebpackConfig();
