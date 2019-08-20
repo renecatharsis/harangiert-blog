@@ -46,10 +46,17 @@
 
         <section name="content">
             <properties>
-                <property name="article" type="text_editor">
+                <property name="map_intro" type="text_editor">
                     <meta>
-                        <title lang="en">Article</title>
-                        <title lang="de">Artikel</title>
+                        <title lang="en">Map intro</title>
+                        <title lang="de">Map Intro</title>
+                    </meta>
+                </property>
+
+                <property name="blog_intro" type="text_editor">
+                    <meta>
+                        <title lang="en">Blog intro</title>
+                        <title lang="de">Blog Intro</title>
                     </meta>
                 </property>
             </properties>
