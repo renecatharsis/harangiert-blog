@@ -15,6 +15,16 @@
         {% include 'partials/map.html.twig' %}
     {% endcache %}
 
+    {% if content.map_intro %}
+        <h2 class="h6">{{ content.map_intro|raw }}</h2>
+    {% endif %}
+
+    <hr>
+
+    {% if content.blog_intro %}
+        <h2>{{ content.blog_intro|raw }}</h2>
+    {% endif %}
+
     {% for article in articles %}
     <div class="post-preview">
         <a href="{{ article.urls[request.locale] }}">
