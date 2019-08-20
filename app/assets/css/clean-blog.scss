@@ -449,3 +449,11 @@ footer .copyright {
 .dropdown-open {
   background: #e7e7e7;
 }
+
+.module-blog {
+  footer {
+    a {
+      max-width: 40%;
+    }
+  }
+}
