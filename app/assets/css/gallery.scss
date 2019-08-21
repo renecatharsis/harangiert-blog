@@ -1,9 +1,11 @@
 .blueimp-gallery-carousel {
   .title {
     font-size: 10px;
+    line-height: 1;
 
     @media screen and (min-width: 768px) {
       font-size: 16px;
+      line-height: 2;
     }
   }
 
