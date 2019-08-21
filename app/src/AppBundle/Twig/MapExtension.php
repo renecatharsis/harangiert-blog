@@ -20,11 +20,12 @@ class MapExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('get_map_link_attributes', [$this, 'getMapLinkAttributes'])
+            new TwigFunction('get_map_link_opening', [$this, 'getMapLinkOpening']),
+            new TwigFunction('get_map_link_closing', [$this, 'getMapLinkClosing'])
         ];
     }
 
-    public function getMapLinkAttributes(string $stopName): string
+    public function getMapLinkOpening(string $stopName, string $cx, string $cy, string $rx, string $ry): string
     {
         /** @var PageBridge $page */
         $page = $this->articleManager->getByStopName($stopName);
@@ -37,16 +38,26 @@ class MapExtension extends AbstractExtension
         if (null !== $page) {
             $attributes = [
                 'href' => $page->getUrl(),
-                'class' => 'text-underline',
+                'class' => 'highlight',
                 'onclick' => ';'
             ];
         }
 
         return sprintf(
-            'xlink:href="%s" class="%s", onclick="%s"',
+            '<a xlink:href="%s" class="%s" onclick="%s">' .
+            '<ellipse cx="%s" cy="%s" rx="%s" ry="%s" style="fill:#ffffff;stroke:#aaaaaa;stroke-width:0.5;opacity: 0.9;" />',
             $attributes['href'],
             $attributes['class'],
-            $attributes['onclick']
+            $attributes['onclick'],
+            $cx,
+            $cy,
+            $rx,
+            $ry
         );
+    }
+
+    public function getMapLinkClosing(): string
+    {
+        return '</a>';
     }
 }

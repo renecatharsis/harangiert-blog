@@ -1,4 +1,12 @@
 .blueimp-gallery-carousel {
+  .title {
+    font-size: 10px;
+
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
   a.prev, a.next {
     color: white;
 

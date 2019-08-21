@@ -2,9 +2,9 @@
 
 namespace AppBundle\Asset;
 
-use Symfony\WebpackEncoreBundle\Asset\IntegrityDataProviderInterface;
+use \Symfony\WebpackEncoreBundle\Asset\TagRenderer as SymfonyTagRenderer;
 
-class TagRenderer extends \Symfony\WebpackEncoreBundle\Asset\TagRenderer
+class TagRenderer extends SymfonyTagRenderer
 {
     public function renderWebpackScriptTags(string $entryName, string $packageName = null, string $entrypointName = '_default'): string
     {
