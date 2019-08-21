@@ -25,6 +25,44 @@
         svg.addEventListener('touchmove', onPointerMove); // Finger is moving
     }
 
+    // This variable will be used later for move events to check if pointer is down or not
+    let isPointerDown = false;
+    // This variable will contain the original coordinates when the user start pressing the mouse or touching the screen
+    let pointerOrigin = {
+        x: 0,
+        y: 0
+    };
+
+    // We save the original values from the viewBox
+    let origViewport = svg.getAttribute('viewBox').split(' ');
+    let viewBox = {
+        x: origViewport[0],
+        y: origViewport[1],
+        width: origViewport[2],
+        height: origViewport[3]
+    };
+
+    // Set viewport depending on device width
+    let deviceWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    if (deviceWidth <= 576) { // bootstrap small breakpoint
+        viewBox.x = viewBox.x * 2.15;
+        viewBox.width = viewBox.width * 0.75;
+        viewBox.height = viewBox.height * 0.75;
+        updateViewBox(viewBox.x, viewBox.y, viewBox.width, viewBox.height);
+    }
+
+    // The distances calculated from the pointer will be stored here
+    let newViewBox = {
+        x: 0,
+        y: 0
+    };
+
+    // Calculate the ratio based on the viewBox width and the SVG width
+    let ratio = viewBox.width / svg.getBoundingClientRect().width;
+    window.addEventListener('resize', function () {
+        ratio = viewBox.width / svg.getBoundingClientRect().width;
+    });
+
     // This function returns an object with X & Y values from the pointer event
     function getPointFromEvent(event) {
         let point = {
@@ -44,14 +82,6 @@
         return point;
     }
 
-    // This variable will be used later for move events to check if pointer is down or not
-    let isPointerDown = false;
-    // This variable will contain the original coordinates when the user start pressing the mouse or touching the screen
-    let pointerOrigin = {
-        x: 0,
-        y: 0
-    };
-
     // Function called by the event listeners when user start pressing/touching
     function onPointerDown(event) {
         isPointerDown = true; // We set the pointer as down
@@ -61,27 +91,6 @@
         pointerOrigin.x = pointerPosition.x;
         pointerOrigin.y = pointerPosition.y;
     }
-
-    // We save the original values from the viewBox
-    let origViewport = svg.getAttribute('viewBox').split(' ');
-    let viewBox = {
-        x: origViewport[0],
-        y: origViewport[1],
-        width: origViewport[2],
-        height: origViewport[3]
-    };
-
-    // The distances calculated from the pointer will be stored here
-    let newViewBox = {
-        x: 0,
-        y: 0
-    };
-
-    // Calculate the ratio based on the viewBox width and the SVG width
-    let ratio = viewBox.width / svg.getBoundingClientRect().width;
-    window.addEventListener('resize', function () {
-        ratio = viewBox.width / svg.getBoundingClientRect().width;
-    });
 
     // Function called by the event listeners when user start moving/dragging
     function onPointerMove(event) {
@@ -102,9 +111,7 @@
 
         // We create a string with the new viewBox values
         // The X & Y values are equal to the current viewBox minus the calculated distances
-        let viewBoxString = `${newViewBox.x} ${newViewBox.y} ${viewBox.width} ${viewBox.height}`;
-        // We apply the new viewBox values onto the SVG
-        svg.setAttribute('viewBox', viewBoxString);
+        updateViewBox(newViewBox.x, newViewBox.y, viewBox.width, viewBox.height);
     }
 
     function onPointerUp() {
@@ -114,5 +121,12 @@
         // We save the viewBox coordinates based on the last pointer offsets
         viewBox.x = newViewBox.x;
         viewBox.y = newViewBox.y;
+    }
+
+    function updateViewBox(x, y, w, h) {
+        let viewBoxString = `${x} ${y} ${w} ${h}`;
+
+        // We apply the new viewBox values onto the SVG
+        svg.setAttribute('viewBox', viewBoxString);
     }
 })();
