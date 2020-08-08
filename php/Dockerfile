@@ -1,9 +1,9 @@
-FROM php:7.3-fpm-stretch
+FROM php:7.4-fpm
 
 RUN apt-get update && \
     apt-get install -y nano libfreetype6-dev libjpeg62-turbo-dev apt-transport-https libpng-dev libicu-dev libzip-dev
 
-RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
+RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ && \
     docker-php-ext-install -j$(nproc) gd && \
     docker-php-ext-install pdo_mysql && \
     docker-php-ext-configure intl && \

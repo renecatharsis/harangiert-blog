@@ -18,7 +18,7 @@
         "psr-4": { "Tests\\": "tests/" }
     },
     "require": {
-        "php": "^7.3",
+        "php": "^7.4",
         "twig/extensions": "^1.0",
         "symfony/symfony": "^2.8.7 || ^3.0",
         "symfony/monolog-bundle": "^2.8.7 || ^3.0",
