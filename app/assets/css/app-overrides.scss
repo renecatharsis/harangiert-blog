@@ -1,0 +1,84 @@
+@import "variables";
+
+body {
+  color: $color;
+  background-color: $bg-color;
+}
+
+hr {
+  border-top: 1px solid $color;
+}
+
+a {
+  color: $color;
+
+  &:hover {
+    color: $link-color;
+  }
+}
+
+.post-preview > a {
+  color: $color;
+
+  &:hover {
+    color: $link-color;
+  }
+}
+
+header {
+  &.masthead {
+    background-color: transparent;
+    height: 100vh;
+  }
+}
+
+.btn-primary {
+  background-color: $button-color;
+  border-color: $button-border-color;
+
+  &:hover, &:focus, &:active {
+    background-color: $link-color !important;
+    border-color: $button-border-color-hover !important;
+  }
+}
+
+.img-thumbnail {
+  background-color: inherit;
+}
+
+#mainNav {
+  background-color: $bg-color;
+
+  .navbar-brand {
+    color: #fff;
+
+    .navbar-nav > li.nav-item > a {
+      color: #fff;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #mainNav {
+    color: #fff;
+    background-color: transparent;
+
+    .navbar-nav > li.nav-item > a {
+      color: #fff;
+    }
+
+    &.is-fixed {
+      color: $color;
+      background-color: $bg-color;
+      opacity: 0.9;
+
+      .navbar-brand {
+        color: $color;
+      }
+
+      .navbar-nav > li.nav-item > a {
+        color: $color;
+      }
+    }
+  }
+}
