@@ -3,7 +3,7 @@
     {% set defaultImage = image.thumbnails["1920x1080"] %}
 {% endif %}
 
-<header class="masthead" {% if defaultImage is defined %}style="background-image: linear-gradient(to top, #1c1c21, rgba(255,0,0,0)), url('{{ asset(defaultImage) }}')"{% endif %}>
+<header class="masthead" {% if defaultImage is defined %}style="height: 100vh; background-image: linear-gradient(to top, #1c1c21, rgba(255,0,0,0)), url('{{ asset(defaultImage) }}')"{% endif %}>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
