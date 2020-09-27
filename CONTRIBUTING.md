@@ -17,7 +17,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 1. Ensure you're following the Symfony coding standards: https://symfony.com/doc/current/contributing/code/standards.html
 2. Reference the issue you opened for your changes
-3. Use English commits messages only
+3. Use English commit messages only
 
 ## Code of Conduct
 
