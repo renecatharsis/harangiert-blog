@@ -1,39 +1,53 @@
-# harangiert
+# Harangiert über Hamburg - a simple blog
+This is the project powering https://www.harangiert.de
 
-## Installation using docker
-``docker run -v app:/app -w /app node:10-alpine yarn install``
+I decided to make this open source as a very simple example of
+a blog running on a proper PHP CMS like Sulu, instead of, you know, *the other systems*.
 
-``docker-compose up -d``
+The installation instructions provided below are only for local development.
+It is **not** a production setup for reasons like easy database credentials,exposing the database port for external access
+or hardcoded configurations.
 
-``docker exec -it harangiert-php-fpm composer install``
+## Installation environment
+You can run this on probably any PHP-compatible OS, depending on which installation 
+setting you prefer.
 
-``docker exec -it harangiert-php-fpm php bin/adminconsole doctrine:database:create --if-not-exists``
+If you don't want to install docker or the required binaries on your local system,
+feel free to use the `Vagrantfile` I added to workin within a VM via [Vagrant](https://www.vagrantup.com/).
 
-``docker exec -it harangiert-php-fpm php bin/adminconsole sulu:build dev/prod``
+the VM's default external IP is *192.168.33.10*, but you can change that to whatever you want
+in the Vagrantfile's setting called `config.vm.network`.
+Docker and docker-compose however are **not** pre-installed.
 
-``docker exec -it harangiert-php-fpm php bin/adminconsole assets:install``
+### Installation for Docker
+Documentation on how to install Docker and docker-compose is not included here.
 
-``docker exec -it harangiert-php-fpm php bin/adminconsole sulu:translate:export``
+* run `docker run -v app:/app -w /app node:10-alpine yarn install`
+* run `docker-compose up -d --build`
+* get the PHP-container's ID using `docker ps`
+* run `docker exec -it <container-id> composer install`
+* run `docker exec -it <container-id> php bin/adminconsole doctrine:database:create --if-not-exists`
+* run `docker exec -it <container-id> php bin/adminconsole sulu:build dev`
+* run `docker exec -it <container-id> php bin/adminconsole assets:install`
+* run `docker exec -it <container-id> php bin/adminconsole sulu:translate:export`
 
-## Installation on classic host
-You only need whatever is inside ``app`` directory!
+After you've finished the installation, you only need to run `docker-compose up -d`
+when booting the project another time.
 
-You need to optimize webserver settings yourself, this repository does not include optimized nginx or apache configs!
+### Installation on own host
+You only need whatever is inside `app` directory!
 
-``composer install``
+Documentation on how to install composer, php, yarn or your database is not included here.
+Optimizing webserver settings is on you, too.
 
-``php bin/adminconsole doctrine:database:create --if-not-exists``
+* run `composer install`
+* run `php bin/adminconsole doctrine:database:create --if-not-exists`
+* run `bin/adminconsole sulu:build dev`
+* run `bin/adminconsole assets:install`
+* run `php bin/adminconsole sulu:translate:export`
+* run `yarn install`
+* run `yarn encore dev --watch` for live frontend updates
 
-``bin/adminconsole sulu:build prod``
-
-``bin/adminconsole assets:install``
-
-``php bin/adminconsole sulu:translate:export``
-
-``yarn install``
-
-``yarn encore production ``
-
-
-## local development
-```docker exec -it harangiert-encore yarn encore dev --watch/production```
+### Differences for production
+* run `php bin/adminconsole sulu:build prod` instead of `php bin/adminconsole sulu:build dev`
+* run `yarn encore production` instead of `yarn encore dev --watch`

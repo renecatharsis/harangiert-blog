@@ -20,7 +20,10 @@ services:
     restart: always
     volumes:
       - "./app:/var/www/html"
-    container_name: harangiert-php-fpm
+    networks:
+      default:
+        aliases:
+          - harangiert-php-fpm
     links:
       - mariadb
   mariadb:
@@ -34,11 +37,13 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - "./mariadb:/var/lib/mysql"
-    container_name: harangiert-mariadb
+    networks:
+      default:
+        aliases:
+          - harangiert-mariadb
   encore:
     image: node:12-alpine
     volumes:
       - "./app:/app"
     working_dir: /app
-    container_name: harangiert-encore
     command: ["yarn", "encore", "dev", "--watch"]
