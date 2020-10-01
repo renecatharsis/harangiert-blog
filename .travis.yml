@@ -60,7 +60,7 @@ script:
   # This checks that the Twig template files contain no syntax errors.
   - php ./bin/adminconsole lint:twig app/Resources/views --env=prod
   # This checks that the XLIFF translations contain no syntax errors.
-  - php ./bin/adminconsole lint:xliff translations
+  # - php ./bin/adminconsole lint:xliff translations
   # This checks that arguments injected into services match type declarations.
   # - php ./bin/console lint:container
   # This checks that the application doesn't use dependencies with known security vulnerabilities.
