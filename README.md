@@ -1,4 +1,8 @@
 # Harangiert über Hamburg - a simple blog
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/renecatharsis/harangiert-blog)
+[![Build Status](https://travis-ci.org/renecatharsis/harangiert-blog.svg?branch=master)](https://travis-ci.org/renecatharsis/harangiert-blog)
+
 This is the project powering https://www.harangiert.de
 
 I decided to make this open source as a very simple example of
