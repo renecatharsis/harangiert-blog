@@ -33,6 +33,8 @@ jobs:
     - php: nightly
 
 before_install:
+  # the actual src resides within the app directory
+  - cd app
   # - phpenv config-rm xdebug.ini || true
   # Change minimum-stability to allow upcoming versions (dev | alpha | beta | RC)
   # - '[[ -z $STABILITY ]] || composer config minimum-stability "$STABILITY"'
