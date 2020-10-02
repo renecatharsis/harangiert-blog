@@ -1,7 +1,8 @@
 require('../css/app.scss');
 
-require('./cookie.js');
-require('./navbar.js');
-require('./scrolling.js');
+require('./lightbox');
+require('./cookie');
+require('./navbar');
+require('./scrolling');
 require('./map');
-require('./gallery.js');
+require('./gallery');

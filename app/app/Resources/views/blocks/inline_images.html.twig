@@ -1,3 +1,5 @@
+{% set lightboxSelector = 'lightbox-' ~ random() %}
+
 {% if block.images|length == 3 %}
     {% set format = '243x182' %}
     {% set width = 'w-50' %}
@@ -10,11 +12,11 @@
 {% endif %}
 
 <div class="d-flex justify-content-around harangiert-inline-images">
-{% for image in block.images %}
-<div class="{{ width }}">
-    <a href="{{ image.formats['3264x2448'] }}" title="{{ image.title }}" target="_blank" rel="noopener">
-        <img alt="{{ image.title }}" src="{{ image.formats[format] }}" class="img-thumbnail" />
-    </a>
-</div>
-{% endfor %}
+    {% for image in block.images %}
+    <div class="{{ width }}">
+        <a href="{{ image.formats['1920x1080'] }}" title="{{ image.title }}" target="_blank" rel="noopener" class="glightbox" data-gallery="{{ lightboxSelector }}" data-glightbox="type: image">
+            <img alt="{{ image.title }}" src="{{ image.formats[format] }}" class="img-thumbnail"/>
+        </a>
+    </div>
+    {% endfor %}
 </div>
