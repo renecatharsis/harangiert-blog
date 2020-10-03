@@ -1,15 +1,15 @@
 # Harangiert über Hamburg - a simple blog
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/renecatharsis/harangiert-blog)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/renecatharsis/harangiert-blog)
 [![Build Status](https://travis-ci.org/renecatharsis/harangiert-blog.svg?branch=master)](https://travis-ci.org/renecatharsis/harangiert-blog)
 
-This is the project powering https://www.harangiert.de
+This application is powering https://www.harangiert.de
 
 I decided to make this open source as a very simple example of
-a blog running on a proper PHP CMS like Sulu, instead of, you know, *the other systems*.
+a blog running on a proper PHP CMS like Sulu, instead of, you know, *one of the  other systems*.
 
 The installation instructions provided below are only for local development.
-It is **not** a production setup for reasons like easy database credentials,exposing the database port for external access
+It is ***not*** a production setup for reasons like easy database credentials,exposing the database port for external access
 or hardcoded configurations.
 
 ## Installation environment
@@ -26,6 +26,7 @@ Docker and docker-compose however are **not** pre-installed.
 ### Installation for Docker
 Documentation on how to install Docker and docker-compose is not included here.
 
+* run `cp .env.dist .env` and adjust settings as you wish
 * run `docker run -v app:/app -w /app node:10-alpine yarn install`
 * run `docker-compose up -d --build`
 * get the PHP-container's ID using `docker ps`
@@ -45,6 +46,7 @@ Documentation on how to install composer, php, yarn or your database is not incl
 Optimizing webserver settings is on you, too.
 
 * run `composer install`
+* adjust `app/config/parameters.yml` as you wish
 * run `php bin/adminconsole doctrine:database:create --if-not-exists`
 * run `bin/adminconsole sulu:build dev`
 * run `bin/adminconsole assets:install`
