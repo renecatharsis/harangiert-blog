@@ -1,5 +1,6 @@
 .map-draggable {
   cursor: pointer;
+  touch-action: none;
   border: 5px solid #ddd;
   background-color: #fff;
   border-radius: 4px;
