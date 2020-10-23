@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://schemas.sulu.io/template/template"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd"
+         name="open_graph">
+    <meta>
+        <title lang="en">OpenGraph information</title>
+        <title lang="de">OpenGraph Informationen</title>
+    </meta>
+
+    <properties>
+        <property name="og_title" type="text_line" mandatory="false">
+            <meta>
+                <title lang="en">og:title (defaults to SEO title)</title>
+                <title lang="de">og:title (Default ist der SEO Titel)</title>
+            </meta>
+        </property>
+
+        <property name="og_description" type="text_line" mandatory="false">
+            <meta>
+                <title lang="en">og:description (defaults to SEO description)</title>
+                <title lang="de">og:description (Default ist die SEO Beschreibung)</title>
+            </meta>
+        </property>
+
+        <property name="og_image" type="media_selection" mandatory="true">
+            <meta>
+                <title lang="en">og:image</title>
+                <title lang="de">og:image</title>
+            </meta>
+            <params>
+                <param name="types" value="image"/>
+                <param name="displayOptions" type="collection">
+                    <param name="leftTop" value="false"/>
+                    <param name="top" value="false"/>
+                    <param name="rightTop" value="false"/>
+                    <param name="left" value="false"/>
+                    <param name="middle" value="true"/>
+                    <param name="right" value="false"/>
+                    <param name="leftBottom" value="false"/>
+                    <param name="bottom" value="false"/>
+                    <param name="rightBottom" value="false"/>
+                </param>
+                <param name="defaultDisplayOption" value="middle"/>
+            </params>
+        </property>
+
+    </properties>
+</section>

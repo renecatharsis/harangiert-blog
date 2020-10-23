@@ -15,11 +15,9 @@ use Twig\Environment;
 
 class TwigCacheEventSubscriber implements EventSubscriberInterface
 {
-    /** @var Environment */
-    protected $twig;
+    protected Environment $twig;
 
-    /** @var CacheItemPoolInterface */
-    protected $cachePool;
+    protected CacheItemPoolInterface $cachePool;
 
     public function __construct(Environment $twigEnvironment, CacheItemPoolInterface $cacheItemPool)
     {

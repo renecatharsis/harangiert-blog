@@ -9,8 +9,7 @@ use Twig\TwigFunction;
 
 class MapExtension extends AbstractExtension
 {
-    /** @var ArticleManagerInterface */
-     protected $articleManager;
+     protected ArticleManagerInterface $articleManager;
 
      public function __construct(ArticleManagerInterface $articleManager)
      {

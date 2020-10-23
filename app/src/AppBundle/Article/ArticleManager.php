@@ -13,14 +13,11 @@ use Sulu\Component\Webspace\Analyzer\RequestAnalyzerInterface;
 
 class ArticleManager implements ArticleManagerInterface
 {
-    /** @var ContentMapperInterface $contentMapper */
-    protected $contentMapper;
+    protected ContentMapperInterface $contentMapper;
 
-    /** @var RequestAnalyzerInterface $requestAnalyser */
-    protected $requestAnalyzer;
+    protected RequestAnalyzerInterface $requestAnalyzer;
 
-    /** @var SessionManagerInterface $sessionManager */
-    protected $sessionManager;
+    protected SessionManagerInterface $sessionManager;
 
     public function __construct(
         ContentMapperInterface $contentMapper,

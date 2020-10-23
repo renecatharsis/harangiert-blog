@@ -61,5 +61,8 @@
                 </property>
             </properties>
         </section>
+
+        <xi:include href="../sections/open_graph.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:section)"/>
     </properties>
 </template>
