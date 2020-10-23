@@ -13,7 +13,7 @@ class HomeController extends WebsiteController
     {
         $articles = $articleManager->getLatest();
 
-        $response = $this->renderStructure(
+        return $this->renderStructure(
             $structure,
             [
                 'articles' => $articles,
@@ -21,7 +21,5 @@ class HomeController extends WebsiteController
             $preview,
             $partial
         );
-
-        return $response;
     }
 }

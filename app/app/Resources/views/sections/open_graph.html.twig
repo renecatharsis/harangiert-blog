@@ -1,0 +1,20 @@
+<meta property="og:title" content="{{ content.og_title|default( extension.seo.title) }}" />
+<meta property="og:url" content="{{ sulu_content_path(content.url) }}" />
+<meta property="og:description" content="{{ content.og_description|default( extension.seo.description) }}" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:site_name" content="Harangiert über Hamburg" />
+
+{% if content.og_image and content.og_image|length > 0 %}
+<meta property="og:image" content="{{ absolute_url(content.og_image[0].formats['547x410']) }}" />
+{% endif %}
+
+{% if template == 'blogpost' %}
+<meta property="og:type" content="article" />
+<meta property="og:article:published_time" content="{{ created|date('Y-m-d\\TH:i:s') }}" />
+<meta property="og:article:modified_time" content="{{ changed|date('Y-m-d\\TH:i:s') }}" />
+<meta property="og:article:author" content="{{ sulu_resolve_contact(author).fullName }}" />
+<meta property="og:article:section" content="Hamburg" />
+<meta property="og:article:tag" content="{{ extension.seo.keywords }}" />
+{% else %}
+<meta property="og:type" content="website" />
+{% endif %}

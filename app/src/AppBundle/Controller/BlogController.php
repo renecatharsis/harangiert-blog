@@ -11,7 +11,7 @@ class BlogController extends WebsiteController
 {
     public function articleAction(StructureInterface $structure, ArticleManagerInterface $articleManager, $preview = false, $partial = false): Response
     {
-        $response = $this->renderStructure(
+        return $this->renderStructure(
             $structure,
             [
                 'previousArticle' => $articleManager->getPrevious($structure),
@@ -20,7 +20,5 @@ class BlogController extends WebsiteController
             $preview,
             $partial
         );
-
-        return $response;
     }
 }

@@ -10,6 +10,7 @@
     "blueimp-gallery": "^2.34.1",
     "bootstrap-cookie-alert": "^1.1.1",
     "bootstrap-css-only": "^4.3.1",
-    "glightbox": "^3.0.5"
+    "glightbox": "^3.0.5",
+    "interactjs": "^1.10.0"
   }
 }
