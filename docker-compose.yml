@@ -42,7 +42,7 @@ services:
         aliases:
           - harangiert-mariadb
   encore:
-    image: node:12-alpine
+    image: node:10-alpine
     volumes:
       - "./app:/app"
     working_dir: /app
