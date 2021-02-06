@@ -34,6 +34,6 @@
           }
 
           previousTop = currentTop;
-        });
+        }, {passive: true});
   }
 })();
