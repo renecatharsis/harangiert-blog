@@ -63,8 +63,6 @@ script:
   # - php ./bin/adminconsole lint:xliff translations
   # This checks that arguments injected into services match type declarations.
   # - php ./bin/console lint:container
-  # This checks that the application doesn't use dependencies with known security vulnerabilities.
-  - php ./bin/adminconsole security:check
   # This checks that Doctrine's mapping configurations are valid.
   - php ./bin/adminconsole doctrine:schema:validate --skip-sync -vvv --no-interaction
   # Fail CI if the repo is in a dirty state after building assets (only for current release ie install).
