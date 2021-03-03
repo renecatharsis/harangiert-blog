@@ -27,7 +27,7 @@ Docker and docker-compose however are **not** pre-installed.
 Documentation on how to install Docker and docker-compose is not included here.
 
 * run `cp .env.dist .env` and adjust settings as you wish
-* run `docker run -v app:/app -w /app node:10-alpine yarn install`
+* run `docker run -v /your/path/to/app:/app -w /app node:14-alpine yarn install`
 * run `docker-compose up -d --build`
 * get the PHP-container's ID using `docker ps`
 * run `docker exec -it <container-id> composer install`
@@ -57,3 +57,7 @@ Optimizing webserver settings is on you, too.
 ### Differences for production
 * run `php bin/adminconsole sulu:build prod` instead of `php bin/adminconsole sulu:build dev`
 * run `yarn encore production` instead of `yarn encore dev --watch`
+
+### Upgrade existing instances from v1.6 to v2.2+
+* follow database upgrade instructions at https://docs.sulu.io/en/2.2/upgrades/upgrade-1.6-2.0.html
+* run `php bin/adminconsole sulu:build dev` or `php bin/adminconsole sulu:build production` respectively

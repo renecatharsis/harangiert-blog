@@ -1,0 +1,47 @@
+{% extends "master.html.twig" %}
+
+{% block meta %}
+    {% include "@SuluWebsite/Extension/seo.html.twig" with {
+        "seo": extension.seo|default([]),
+        "content": content|default([]),
+        "urls": urls|default([]),
+        "shadowBaseLocale": shadowBaseLocale|default(),
+        "defaultLocale": request.defaultLocale|default('de')
+    } %}
+{% endblock %}
+
+{% block content %}
+{#    {% cache 'map' map_cache_lifetime %}#}
+        {% include 'partials/map.html.twig' %}
+{#    {% endcache %}#}
+
+    {% if content.map_intro %}
+        <h2 class="h6">{{ content.map_intro|raw }}</h2>
+    {% endif %}
+
+    <hr>
+
+    {% if content.blog_intro %}
+        <h2>{{ content.blog_intro|raw }}</h2>
+    {% endif %}
+
+    {% for article in articles %}
+    <div class="post-preview">
+        <a href="{{ article.urls[app.request.locale] }}">
+            {% set page = sulu_content_load(article.uuid) %}
+            <h2 class="post-title">
+                {{ page.content.heading_title|default('') }}
+            </h2>
+            <h3 class="post-subtitle">
+                {{ get_article_text(page)|default('')|slice(0, 200)|raw }}...
+            </h3>
+        </a>
+        {% set authorObject = sulu_resolve_user(author) %}
+        <span class="post-meta">Veröffentlicht
+            von {{ authorObject.contact.firstName|default('') }}
+            am {{ article.document.published|date('d.m.Y') }}
+        </span>
+    </div>
+    <hr>
+    {% endfor %}
+{% endblock %}
