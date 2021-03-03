@@ -15,7 +15,7 @@
         "source": "https://github.com/renecatharsis/harangiert-blog"
     },
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": " ^8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "dantleech/phpcr-migrations-bundle": "^1.2",
