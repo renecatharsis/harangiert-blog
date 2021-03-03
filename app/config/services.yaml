@@ -40,12 +40,7 @@ services:
             - { name: 'kernel.event_subscriber' }
             - { name: 'sulu.context', context: 'website' }
 
-    App\Content\Mapper\ContentMapper:
-        arguments:
-            - '@sulu_document_manager.document_manager'
-            - '@sulu_document_manager.document_inspector'
-            - '@sulu.content.structure_manager'
-
     App\Article\ArticleManager:
         arguments:
             - '@sulu_document_manager.document_manager'
+            - '@sulu.content.mapper'

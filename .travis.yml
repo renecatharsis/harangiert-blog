@@ -55,15 +55,15 @@ script:
   # repository already includes a test database with all the fixtures needed to run the tests.
   # - ./bin/phpunit
   # This checks that the source code follows the Symfony Code Syntax rules.
-  # - '[[ $TRAVIS_PHP_VERSION != "7.4" ]] || ./vendor/bin/php-cs-fixer fix --diff --dry-run -v'
+  # - '[[ $TRAVIS_PHP_VERSION != "8.0" ]] || ./vendor/bin/php-cs-fixer fix --diff --dry-run -v'
   # This checks that the YAML config files contain no syntax errors.
-  - php ./bin/adminconsole lint:yaml app/config --parse-tags
+  - php ./bin/adminconsole lint:yaml config --parse-tags
   # This checks that the Twig template files contain no syntax errors.
-  - php ./bin/adminconsole lint:twig app/Resources/views --env=prod
+  - php ./bin/adminconsole lint:twig templates --env=prod
   # This checks that the XLIFF translations contain no syntax errors.
   # - php ./bin/adminconsole lint:xliff translations
   # This checks that arguments injected into services match type declarations.
-  # - php ./bin/console lint:container
+  - php ./bin/console lint:container
   # This checks that Doctrine's mapping configurations are valid.
   - php ./bin/adminconsole doctrine:schema:validate --skip-sync -vvv --no-interaction
   # Fail CI if the repo is in a dirty state after building assets (only for current release ie install).

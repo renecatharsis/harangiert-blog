@@ -2,13 +2,13 @@
 
 namespace App\Article;
 
-use App\Content\Mapper\ContentMapper;
 use App\Page\Types;
 use PHPCR\Query\QOM\QueryObjectModelConstantsInterface;
 use PHPCR\Query\QueryInterface;
 use PHPCR\SessionInterface;
 use PHPCR\Util\QOM\QueryBuilder;
 use Sulu\Component\Content\Compat\StructureInterface;
+use Sulu\Component\Content\Mapper\ContentMapper;
 use Sulu\Component\DocumentManager\DocumentManager;
 use Sulu\Component\Webspace\Analyzer\RequestAnalyzerInterface;
 
