@@ -3,6 +3,7 @@
 /.env.local.php
 /.env.*.local
 /var/
+!/var/.gitignore
 /vendor/
 ###< symfony/framework-bundle ###
 
@@ -10,9 +11,6 @@
 .phpunit
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
-# var
-/var/*
-!/var/.gitignore
 
 # web
 /public/bundles
@@ -26,11 +24,6 @@
 # npm
 package-lock.json
 node_modules
-
-# phpunit
-.phpunit
-/phpunit.xml
-.phpunit.result.cache
 
 # phpcs
 .php_cs.cache
