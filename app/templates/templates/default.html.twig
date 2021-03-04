@@ -1,0 +1,20 @@
+{% extends "master.html.twig" %}
+
+{% block meta %}
+    {% include "@SuluWebsite/Extension/seo.html.twig" with {
+        "seo": extension.seo|default([]),
+        "content": content|default([]),
+        "urls": urls|default([]),
+        "shadowBaseLocale": shadowBaseLocale|default(),
+        "defaultLocale": request.defaultLocale|default('de')
+    } %}
+{% endblock %}
+
+{% block content %}
+    <h1 property="title">{{ content.title }}</h1>
+
+    <div property="article">
+{#        CKEditor5 doesn't support inline html editing anymore, so we have to hardcode bootstrap classes here#}
+        {{ content.article|replace({'<table>': '<table class="table table-striped">'})|raw }}
+    </div>
+{% endblock %}

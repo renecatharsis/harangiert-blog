@@ -1,50 +1,51 @@
-# app
-/app/bootstrap.php.cache
-/app/config/parameters.yml
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
 
-# bin
-/bin/*
-!/bin/console
-!/bin/console.php
-!/bin/websiteconsole
-!/bin/adminconsole
-!/bin/symfony_requirements
-
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
 # var
-/var/cache/*
-/var/indexes/*
-/var/logs/*
-/var/sessions/*
-/var/uploads/*
-/var/sitemaps/*
-!/var/cache/.gitkeep
-!/var/indexes/.gitkeep
-!/var/logs/.gitkeep
-!/var/sessions/.gitkeep
-!/var/uploads/.gitkeep
-!/var/sitemaps/.gitkeep
+/var/*
+!/var/.gitignore
 
 # web
-/web/css
-/web/js
-/web/bundles
-/web/uploads
-/web/build
-/var/bootstrap.php.cache
-/var/SymfonyRequirements.php
-/web/admin/translations/*
-!/web/admin/translations/.gitkeep
+/public/bundles
+/public/uploads
+/public/build
 
 # composer
 /composer.phar
 composer.lock
+symfony.lock
 /vendor
-/node_modules
+
+# npm
+package-lock.json
+node_modules
+
+# phpcs
+.php_cs.cache
+.php_cs
 
 # IDEs
 /.idea
 *.iml
 *~
+.web-server-pid
 
 # System files
 .DS_Store
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
