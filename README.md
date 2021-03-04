@@ -61,3 +61,5 @@ Optimizing webserver settings is on you, too.
 ### Upgrade existing instances from v1.6 to v2.2+
 * follow database upgrade instructions at https://docs.sulu.io/en/2.2/upgrades/upgrade-1.6-2.0.html
 * run `php bin/adminconsole sulu:build dev` or `php bin/adminconsole sulu:build production` respectively
+* move user generated content via `mv web/uploads public`
+* install admin backend assets `cd assets/admin && npm install && npm run-script build`
