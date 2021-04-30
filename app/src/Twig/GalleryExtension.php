@@ -23,7 +23,8 @@ class GalleryExtension extends AbstractExtension
             $images[] = [
                 'title' => $source->getDescription(),
                 'href' => $source->getFormats()['547x410'],
-                'thumbnail' => $source->getFormats()['102x76'],
+                'width' => '547',
+                'height' => 'auto'
             ];
         }
 

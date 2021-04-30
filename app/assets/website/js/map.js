@@ -8,21 +8,21 @@
 
     // If browser supports pointer events
     if (window.PointerEvent) {
-        svg.addEventListener('pointerdown', onPointerDown); // Pointer is pressed
-        svg.addEventListener('pointerup', onPointerUp); // Releasing the pointer
-        svg.addEventListener('pointerleave', onPointerUp); // Pointer gets out of the SVG area
-        svg.addEventListener('pointermove', onPointerMove); // Pointer is moving
+        svg.addEventListener('pointerdown', onPointerDown, {passive: true}); // Pointer is pressed
+        svg.addEventListener('pointerup', onPointerUp, {passive: true}); // Releasing the pointer
+        svg.addEventListener('pointerleave', onPointerUp, {passive: true}); // Pointer gets out of the SVG area
+        svg.addEventListener('pointermove', onPointerMove, {passive: true}); // Pointer is moving
     } else {
         // Add all mouse events listeners fallback
-        svg.addEventListener('mousedown', onPointerDown); // Pressing the mouse
-        svg.addEventListener('mouseup', onPointerUp); // Releasing the mouse
-        svg.addEventListener('mouseleave', onPointerUp); // Mouse gets out of the SVG area
-        svg.addEventListener('mousemove', onPointerMove); // Mouse is moving
+        svg.addEventListener('mousedown', onPointerDown, {passive: true}); // Pressing the mouse
+        svg.addEventListener('mouseup', onPointerUp, {passive: true}); // Releasing the mouse
+        svg.addEventListener('mouseleave', onPointerUp, {passive: true}); // Mouse gets out of the SVG area
+        svg.addEventListener('mousemove', onPointerMove, {passive: true}); // Mouse is moving
 
         // Add all touch events listeners fallback
-        svg.addEventListener('touchstart', onPointerDown); // Finger is touching the screen
-        svg.addEventListener('touchend', onPointerUp); // Finger is no longer touching the screen
-        svg.addEventListener('touchmove', onPointerMove); // Finger is moving
+        svg.addEventListener('touchstart', onPointerDown, {passive: true}); // Finger is touching the screen
+        svg.addEventListener('touchend', onPointerUp, {passive: true}); // Finger is no longer touching the screen
+        svg.addEventListener('touchmove', onPointerMove, {passive: true}); // Finger is moving
     }
 
     // This variable will be used later for move events to check if pointer is down or not
