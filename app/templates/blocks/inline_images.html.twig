@@ -19,10 +19,10 @@
 
 <div class="d-flex justify-content-around harangiert-inline-images">
     {% for image in block.images %}
-        <div class="{{ widthClass }}">
-            <a href="{{ image.formats['1920x1080'] }}" title="{{ image.title }}" target="_blank" rel="noopener" class="glightbox" data-gallery="{{ lightboxSelector }}" data-glightbox="type: image">
-                <img alt="{{ image.title }}" width="{{ width }}" height="{{ height }}" src="{{ image.formats[format] }}" class="img-thumbnail"/>
-            </a>
-        </div>
+    <div class="{{ widthClass }}">
+        <a href="{{ image.formats['1920x1080'] }}" title="{{ image.title }}" target="_blank" rel="noopener" class="glightbox" data-gallery="{{ lightboxSelector }}" data-glightbox="type: image">
+            <img alt="{{ image.title }}" width="{{ width }}" height="{{ height }}" src="{{ image.formats[format] }}" class="img-thumbnail"/>
+        </a>
+    </div>
     {% endfor %}
 </div>
