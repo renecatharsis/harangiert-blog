@@ -3,23 +3,26 @@
 {% if block.images|length == 3 %}
     {% set format = '243x182' %}
     {% set width = '243' %}
+    {% set height = '182' %}
     {% set widthClass = 'w-50' %}
 {% elseif block.images|length == 2 %}
     {% set format = '370x277' %}
     {% set width = '370' %}
+    {% set height = '277' %}
     {% set widthClass = 'w-50' %}
 {% else %}
     {% set format = '408x306' %}
     {% set width = '408' %}
+    {% set height = '306' %}
     {% set widthClass = '' %}
 {% endif %}
 
 <div class="d-flex justify-content-around harangiert-inline-images">
     {% for image in block.images %}
-    <div class="{{ widthClass }}">
-        <a href="{{ image.formats['1920x1080'] }}" title="{{ image.title }}" target="_blank" rel="noopener" class="glightbox" data-gallery="{{ lightboxSelector }}" data-glightbox="type: image">
-            <img alt="{{ image.title }}" width="{{ width }}" height="auto" src="{{ image.formats[format] }}" class="img-thumbnail"/>
-        </a>
-    </div>
+        <div class="{{ widthClass }}">
+            <a href="{{ image.formats['1920x1080'] }}" title="{{ image.title }}" target="_blank" rel="noopener" class="glightbox" data-gallery="{{ lightboxSelector }}" data-glightbox="type: image">
+                <img alt="{{ image.title }}" width="{{ width }}" height="{{ height }}" src="{{ image.formats[format] }}" class="img-thumbnail"/>
+            </a>
+        </div>
     {% endfor %}
 </div>
