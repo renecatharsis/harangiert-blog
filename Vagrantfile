@@ -77,4 +77,7 @@ Vagrant.configure("2") do |config|
     compose_env = Hash[*File.read('.env').split(/[=\n]+/).select  { |s| !s.start_with?('#') }]
   end
 
+  if Vagrant.has_plugin?("vagrant-vbguest")
+      config.vbguest.auto_update = false
+    end
 end

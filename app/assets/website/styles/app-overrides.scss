@@ -85,3 +85,7 @@ header {
     }
   }
 }
+
+.list-inline-item + .list-inline-item {
+  margin-left: 20px;
+}
