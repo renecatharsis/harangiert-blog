@@ -16,13 +16,6 @@ or hardcoded configurations.
 You can run this on probably any PHP-compatible OS, depending on which installation 
 setting you prefer.
 
-If you don't want to install docker or the required binaries on your local system,
-feel free to use the `Vagrantfile` I added to workin within a VM via [Vagrant](https://www.vagrantup.com/).
-
-the VM's default external IP is *192.168.33.10*, but you can change that to whatever you want
-in the Vagrantfile's setting called `config.vm.network`.
-Docker and docker-compose however are **not** pre-installed.
-
 ### Installation for Docker
 Documentation on how to install Docker and docker-compose is not included here.
 
