@@ -34,7 +34,6 @@ Documentation on how to install Docker and docker-compose is not included here.
 * run `docker exec -it <container-id> php bin/adminconsole doctrine:database:create --if-not-exists`
 * run `docker exec -it <container-id> php bin/adminconsole sulu:build dev`
 * run `docker exec -it <container-id> php bin/adminconsole assets:install`
-* run `docker exec -it <container-id> php bin/adminconsole sulu:translate:export`
 
 After you've finished the installation, you only need to run `docker-compose up -d`
 when booting the project another time.
