@@ -5,6 +5,10 @@
     let acceptCookies = document.querySelectorAll(".cookie-button");
     let cookieName = 'acceptCookies';
 
+    if (!cookieAlert || !acceptCookies) {
+        return;
+    }
+
     cookieAlert.offsetHeight; // Force browser to trigger reflow (https://stackoverflow.com/a/39451131)
 
     // Show the alert if we cant find the "acceptCookies" cookie
