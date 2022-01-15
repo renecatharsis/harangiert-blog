@@ -9,3 +9,6 @@
 .vagrant
 
 .env
+
+# local database
+mariadb
