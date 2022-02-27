@@ -19,11 +19,11 @@ COPY ./php.ini /usr/local/etc/php/conf.d
 
 WORKDIR /var/www/html
 
+EXPOSE 9000
+
 # dev includes xdebug
 FROM prod as dev
 
 RUN pecl install xdebug && docker-php-ext-enable xdebug
-RUN echo 'xdebug.client_port=9003' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo 'xdebug.idekey=xdebug_session' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo 'xdebug.mode=debug' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo 'xdebug.discover_client_host=1' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+EXPOSE 9000 9003

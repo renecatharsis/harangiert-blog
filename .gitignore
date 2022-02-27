@@ -8,7 +8,6 @@
 # Vagrant
 .vagrant
 
+# local dev
 .env
-
-# local database
 mariadb
