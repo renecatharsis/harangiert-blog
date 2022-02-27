@@ -8,4 +8,6 @@
 # Vagrant
 .vagrant
 
+# local dev
 .env
+mariadb
