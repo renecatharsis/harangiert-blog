@@ -125,6 +125,9 @@
     "egulias/email-validator": {
         "version": "2.1.25"
     },
+    "friendsofphp/proxy-manager-lts": {
+        "version": "v1.0.5"
+    },
     "friendsofsymfony/http-cache": {
         "version": "2.10.0"
     },
