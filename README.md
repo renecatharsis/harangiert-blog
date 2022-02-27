@@ -1,7 +1,7 @@
 # Harangiert über Hamburg - a simple blog
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/renecatharsis/harangiert-blog)
-[![Build Status](https://travis-ci.org/renecatharsis/harangiert-blog.svg?branch=master)](https://travis-ci.org/renecatharsis/harangiert-blog)
+[![Build Status](https://app.travis-ci.com/renecatharsis/harangiert-blog.svg?branch=main)](https://app.travis-ci.com/github/renecatharsis/harangiert-blog)
 
 This application is powering https://www.harangiert.de
 
@@ -29,7 +29,7 @@ Documentation on how to install Docker and docker-compose is not included here.
 * run `docker exec -it <container-id> php bin/adminconsole sulu:build dev`
 * run `docker exec -it <container-id> php bin/adminconsole assets:install`
 * get the Node-container's ID using `docker ps`
-* run `docker exec -it <container-id> cd assets && npm install && npm watch`
+* run `docker exec -it <container-id> cd assets/admin && npm run preinstall && npm install && npm run postinstall && npm watch`
 
 After you've finished the installation, you only need to run `docker-compose up -d`
 when booting the project another time.

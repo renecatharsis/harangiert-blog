@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block content %}
+    {{ dump(map_cache_lifetime) }}
     {% cache 'map' ttl(map_cache_lifetime) %}
         {% include 'partials/map.html.twig' %}
     {% endcache %}

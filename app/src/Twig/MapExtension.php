@@ -43,8 +43,9 @@ class MapExtension extends AbstractExtension
         }
 
         return sprintf(
-            '<a xlink:href="%s" class="%s" onclick="%s">' .
+            '<a xlink:href="%s" href="%s" class="%s" onclick="%s">' .
             '<ellipse cx="%s" cy="%s" rx="%s" ry="%s" style="fill:#ffffff;stroke:#aaaaaa;stroke-width:0.5;opacity: 0.9;" />',
+            $attributes['href'],
             $attributes['href'],
             $attributes['class'],
             $attributes['onclick'],
