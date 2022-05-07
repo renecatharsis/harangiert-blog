@@ -99,7 +99,7 @@
             return;
         }
         // This prevent user to do a selection on the page
-        event.preventDefault();
+        // event.preventDefault();
 
         // Get the pointer position
         let pointerPosition = getPointFromEvent(event);
