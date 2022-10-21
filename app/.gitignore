@@ -2,32 +2,35 @@
 /.env.local
 /.env.local.php
 /.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
-.phpunit
+.phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
-# var
-/var/*
-!/var/.gitignore
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
 
 # web
 /public/bundles
 /public/uploads
-/public/build
 
 # composer
 /composer.phar
-composer.lock
-symfony.lock
-/vendor
 
 # npm
-package-lock.json
 node_modules
 
 # phpcs
