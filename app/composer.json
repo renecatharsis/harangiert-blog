@@ -1,28 +1,18 @@
 {
-    "license": "proprietary",
+    "name": "renecatharis/harangiert-blog",
+    "license": "MIT",
     "type": "project",
-    "homepage": "https://sulu.io/",
-    "keywords": [
-        "symfony",
-        "sulu",
-        "sulucms",
-        "cms",
-        "web-application",
-        "platform",
-        "data-managment",
-        "project-template"
-    ],
+    "description": "blog about hamburg, germany",
+    "homepage": "https://www.harangiert.de",
     "authors": [
         {
-            "name": "Sulu Community",
-            "homepage": "https://github.com/sulu/skeleton/graphs/contributors"
+            "name": "Rene Rösch",
+            "homepage": "https://github.com/renecatharsis"
         }
     ],
     "support": {
-        "issues": "https://github.com/sulu/skeleton/issues",
-        "source": "https://github.com/sulu/skeleton",
-        "docs": "https://docs.sulu.io/",
-        "chat": "https://sulu.io/services-and-support#chat"
+        "issues": "https://github.com/renecatharsis/harangiert-blog/issues",
+        "source": "https://github.com/renecatharsis/harangiert-blog"
     },
     "require": {
         "php": "^8.1",
