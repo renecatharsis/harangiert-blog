@@ -27,7 +27,7 @@ jobs:
   fast_finish: true
   include:
     # Run tests with the dependencies from composer.lock
-    - php: 8.0
+    - php: 8.1
     - php: nightly
   allow_failures:
     - php: nightly

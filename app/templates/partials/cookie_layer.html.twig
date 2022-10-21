@@ -1,9 +1,0 @@
-{% set cookieLayer = sulu_snippet_load_by_area('cookielayer') %}
-{% if null != cookieLayer %}
-<div class="alert text-center cookiealert position-fixed" role="alert">
-    {{ cookieLayer.content.cookielayer_text|raw }}
-    <button type="button" class="btn btn-primary btn-sm cookie-button" data-cookie="true" aria-label="Close">
-        {{ cookieLayer.content.cookielayer_button_accept }}
-    </button>
-</div>
-{% endif %}
