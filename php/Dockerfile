@@ -1,5 +1,5 @@
 # prod is default
-FROM php:8.1-fpm-bullseye as prod
+FROM php:8.2-fpm-bullseye as prod
 
 RUN apt-get update && \
     apt-get install -y nano libfreetype6-dev libjpeg62-turbo-dev apt-transport-https libpng-dev libwebp-dev libicu-dev libzip-dev unzip

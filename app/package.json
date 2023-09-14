@@ -19,7 +19,8 @@
         "blueimp-gallery": "^3.3.0",
         "bootstrap": "^4.6.0",
         "glightbox": "^3.0.7",
-        "interactjs": "^1.10.3"
+        "interactjs": "^1.10.3",
+        "startbootstrap-clean-blog": "^6.0.9"
     },
     "scripts": {
         "dev-server": "encore dev-server",

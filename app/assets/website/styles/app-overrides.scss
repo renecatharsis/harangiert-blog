@@ -21,17 +21,28 @@ a {
   }
 }
 
-.post-preview > a {
-  color: $color;
+.post-preview {
+  a {
+    color: $color;
 
-  &:hover {
-    color: $link-color;
+    &:hover {
+      color: $link-color;
+    }
+  }
+
+  .post-meta {
+    color: $color;
   }
 }
 
 header {
   &.masthead {
     background-color: transparent;
+
+    &:before {
+      content: "";
+      position: relative;
+    }
   }
 }
 
@@ -54,10 +65,10 @@ header {
 
   .navbar-brand {
     color: #fff;
+  }
 
-    .navbar-nav > li.nav-item > a {
-      color: #fff;
-    }
+  .navbar-nav > li.nav-item > a {
+    color: #fff;
   }
 }
 
@@ -88,4 +99,12 @@ header {
 
 .list-inline-item + .list-inline-item {
   margin-left: 20px;
+}
+
+.svg-inline--fa {
+  background-color: $color;
+  display: var(--fa-display,inline-block);
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
 }
