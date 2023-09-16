@@ -1,20 +1,7 @@
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/grid";
-@import "~bootstrap/scss/images";
-@import "~bootstrap/scss/navbar";
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/root";
-@import "~bootstrap/scss/tables";
-@import "~bootstrap/scss/type";
-@import "~bootstrap/scss/utilities";
-
+@import "~startbootstrap-clean-blog/dist/css/styles.css";
 @import "~blueimp-gallery/css/blueimp-gallery.min.css";
 @import "~glightbox/dist/css/glightbox.min.css";
 
-@import "fonts";
-@import "clean-blog";
 @import "app-overrides";
 @import "map";
 @import "gallery";
