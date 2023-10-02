@@ -19,11 +19,8 @@ COPY ./php.ini /usr/local/etc/php/conf.d
 
 WORKDIR /var/www/html
 
-EXPOSE 9000
-
 # dev includes xdebug
 FROM prod as dev
 
+COPY ./xdebug.ini /usr/local/etc/php/conf.d
 RUN pecl install xdebug && docker-php-ext-enable xdebug
-
-EXPOSE 9000 9003
