@@ -49,6 +49,7 @@ header {
 .btn-primary {
   background-color: $button-color;
   border-color: $button-border-color;
+  font-size: 1.125rem;
 
   &:hover, &:focus, &:active {
     background-color: $link-color !important;

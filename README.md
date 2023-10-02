@@ -21,15 +21,15 @@ Documentation on how to install Docker and docker-compose is not included here.
 
 * run `cp .env.dist .env` and adjust settings as you wish
 * run `docker run -v /your/path/to/app:/app -w /app node:14-alpine yarn install`
-* run `docker run -v /your/path/to/app/assets/admin:/admin -w /admin node:14-alpine npm install` 
+* run `docker run -v /your/path/to/app/:/app -w /app/assets/admin node:14-alpine npm install` * 
 * run `docker-compose up -d --build`
-* get the PHP-container's ID using `docker ps`
-* run `docker exec -it <container-id> composer install`
-* run `docker exec -it <container-id> php bin/adminconsole doctrine:database:create --if-not-exists`
-* run `docker exec -it <container-id> php bin/adminconsole sulu:build dev`
-* run `docker exec -it <container-id> php bin/adminconsole assets:install`
-* get the Node-container's ID using `docker ps`
-* run `docker exec -it <container-id> cd assets/admin && npm run preinstall && npm install && npm run postinstall && npm watch`
+* run `docker exec -it harangiert_php composer install`
+* run `docker exec -it harangiert_php php bin/adminconsole doctrine:database:create --if-not-exists`
+* run `docker exec -it harangiert_php php bin/adminconsole sulu:build dev`
+* run `docker exec -it harangiert_php php bin/adminconsole assets:install`
+* run `docker run -v /your/path/to/app/:/app -w /app/assets/admin node:14-alpine npm install && npm watch`
+
+*Due to an unresolved issue with newer npm versions, the initial installation needs to happen with node 14. See https://github.com/sulu/skeleton/issues/88
 
 After you've finished the installation, you only need to run `docker-compose up -d`
 when booting the project another time.
