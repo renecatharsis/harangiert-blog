@@ -1,8 +1,6 @@
-version: '3.4'
-
 services:
   web:
-    image: nginx:1.24-alpine
+    image: nginx:1.26-alpine
     volumes:
       - "./nginx/default.conf:/etc/nginx/conf.d/default.conf"
       - "./app:/var/www/html"
@@ -31,7 +29,7 @@ services:
       - .env
 
   mariadb:
-    image: mariadb:10.3
+    image: mariadb:10.6
     ports:
       - "127.0.0.1:42000:3306"
     environment:
@@ -47,9 +45,9 @@ services:
           - harangiert-mariadb
 
   encore:
-    image: node:18-alpine
+    image: node:20-alpine
     container_name: harangiert_encore
     volumes:
       - "./app:/app"
-    working_dir: /app
+    working_dir: /app/assets/website
     command: ["yarn", "watch"]

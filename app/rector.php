@@ -15,11 +15,16 @@ use Sulu\Rector\Set\SuluLevelSetList;
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([__DIR__ . '/src', __DIR__ . '/tests']);
 
-    $rectorConfig->phpstanConfig(__DIR__ . '/phpstan.neon');
+    $rectorConfig->phpstanConfigs([
+        __DIR__ . '/phpstan.dist.neon',
+        // rector does not load phpstan extension automatically so require them manually here:
+        __DIR__ . '/vendor/phpstan/phpstan-doctrine/extension.neon',
+        __DIR__ . '/vendor/phpstan/phpstan-symfony/extension.neon',
+    ]);
 
     // basic rules
     $rectorConfig->importNames();
-    $rectorConfig->importShortClasses();
+    $rectorConfig->importShortClasses(false);
 
     $rectorConfig->sets([
         SetList::CODE_QUALITY,
@@ -32,7 +37,8 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->sets([
         SymfonySetList::SYMFONY_CODE_QUALITY,
         SymfonySetList::SYMFONY_CONSTRUCTOR_INJECTION,
-        SymfonyLevelSetList::UP_TO_SYMFONY_60,
+        // activate when doing updates:
+        // SymfonyLevelSetList::UP_TO_SYMFONY_63,
     ]);
 
     // doctrine rules
@@ -42,12 +48,14 @@ return static function (RectorConfig $rectorConfig): void {
 
     // phpunit rules
     $rectorConfig->sets([
-        PHPUnitLevelSetList::UP_TO_PHPUNIT_90,
-        PHPUnitSetList::PHPUNIT_91,
+        // activate when doing updates:
+        // PHPUnitLevelSetList::UP_TO_PHPUNIT_90,
+        // PHPUnitSetList::PHPUNIT_91,
     ]);
 
     // sulu rules
     $rectorConfig->sets([
-        SuluLevelSetList::UP_TO_SULU_25,
+        // activate for updates when doing updates:
+        // SuluLevelSetList::UP_TO_SULU_25,
     ]);
 };

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Twig;
 
@@ -16,7 +18,7 @@ class MapExtension extends AbstractExtension
          $this->articleManager = $articleManager;
      }
 
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('get_map_link_opening', [$this, 'getMapLinkOpening']),
