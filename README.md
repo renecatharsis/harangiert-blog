@@ -27,7 +27,8 @@ Documentation on how to install Docker and docker-compose is not included here.
 * run `docker exec -it harangiert_php php bin/adminconsole doctrine:database:create --if-not-exists`
 * run `docker exec -it harangiert_php php bin/adminconsole sulu:build dev`
 * run `docker exec -it harangiert_php php bin/adminconsole assets:install`
-* run `docker run -v /your/path/to/app/:/app -w /app/assets/admin node:14-alpine npm install && npm watch`
+* run `docker run --rm -v /your/path/to/app/:/app -w /app/assets/admin node:20-alpine npm install && npm run watch`
+* run `docker run --rm -v /your/path/to/app/:/app -w /app/assets/website node:20-alpine npm install && npm run watch`
 
 *Due to an unresolved issue with newer npm versions, the initial installation needs to happen with node 14. See https://github.com/sulu/skeleton/issues/88
 

@@ -1,4 +1,4 @@
-require('../styles/app.scss');
+require('./../styles/app.scss');
 
 require('./lightbox');
 require('./navbar');

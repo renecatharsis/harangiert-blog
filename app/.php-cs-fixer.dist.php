@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 $finder = (new PhpCsFixer\Finder())
     ->in(__DIR__)
-    ->ignoreVCSIgnored(true)
+    ->exclude('var')
     ->notName('bundles.php');
 
 return (new PhpCsFixer\Config())
@@ -18,7 +18,7 @@ return (new PhpCsFixer\Config())
         'phpdoc_align' => ['align' => 'left'],
         'class_definition' => [
             'multi_line_extends_each_single_line' => true,
-        ] ,
+        ],
         'linebreak_after_opening_tag' => true,
         'declare_strict_types' => true,
         'method_argument_space' => ['on_multiline' => 'ensure_fully_multiline'],
@@ -40,8 +40,13 @@ return (new PhpCsFixer\Config())
         'single_line_throw' => false,
         'visibility_required' => ['elements' => ['property', 'method', 'const']],
         'phpdoc_to_comment' => [
-            'ignored_tags' => ['todo', 'var'],
+            'ignored_tags' => ['todo', 'var', 'see', 'phpstan-ignore-next-line'],
         ],
         'trailing_comma_in_multiline' => ['elements' => ['arrays', 'arguments', 'parameters']],
+        'global_namespace_import' => ['import_classes' => false, 'import_constants' => false, 'import_functions' => false],
+        'nullable_type_declaration_for_default_null_value' => true,
+        'fully_qualified_strict_types' => false,
+        'no_null_property_initialization' => false,
+        'nullable_type_declaration' => false,
     ])
     ->setFinder($finder);

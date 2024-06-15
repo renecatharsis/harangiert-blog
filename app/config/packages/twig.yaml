@@ -1,5 +1,5 @@
 twig:
-    default_path: '%kernel.project_dir%/templates'
+    file_name_pattern: '*.twig'
     globals:
         map_cache_lifetime: '%env(int:MAP_CACHE_LIFETIME)%'
 
