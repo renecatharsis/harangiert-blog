@@ -1,5 +1,5 @@
 # prod is default
-FROM php:8.3.8-fpm-bookworm as prod
+FROM php:8.4.7-fpm-bookworm AS prod
 
 RUN apt-get update && \
     apt-get install -y nano libfreetype6-dev libjpeg62-turbo-dev apt-transport-https libpng-dev libwebp-dev libicu-dev libzip-dev unzip
@@ -20,7 +20,7 @@ COPY ./php.ini /usr/local/etc/php/conf.d
 WORKDIR /var/www/html
 
 # dev includes xdebug
-FROM prod as dev
+FROM prod AS dev
 
 COPY ./xdebug.ini /usr/local/etc/php/conf.d
 RUN pecl install xdebug && docker-php-ext-enable xdebug

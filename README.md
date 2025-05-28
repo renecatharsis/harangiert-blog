@@ -21,7 +21,7 @@ Documentation on how to install Docker and docker-compose is not included here.
 
 * run `cp .env.dist .env` and adjust settings as you wish
 * run `docker run -v /your/path/to/app:/app -w /app node:14-alpine yarn install`
-* run `docker run -v /your/path/to/app/:/app -w /app/assets/admin node:14-alpine npm install` * 
+* run `docker run -v /your/path/to/app/:/app -w /app/assets/admin node:20-alpine npm install` * 
 * run `docker-compose up -d --build`
 * run `docker exec -it harangiert_php composer install`
 * run `docker exec -it harangiert_php php bin/adminconsole doctrine:database:create --if-not-exists`

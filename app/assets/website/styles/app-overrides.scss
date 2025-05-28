@@ -1,37 +1,37 @@
-@import "variables";
+@use "variables";
 
 body {
-  color: $color;
-  background-color: $bg-color;
+  color: variables.$color;
+  background-color: variables.$bg-color;
 }
 
 table {
-  color: $color !important;
+  color: variables.$color !important;
 }
 
 hr {
-  border-top: 1px solid $color;
+  border-top: 1px solid variables.$color;
 }
 
 a {
-  color: $color;
+  color: variables.$color;
 
   &:hover {
-    color: $link-color;
+    color: variables.$link-color;
   }
 }
 
 .post-preview {
   a {
-    color: $color;
+    color: variables.$color;
 
     &:hover {
-      color: $link-color;
+      color: variables.$link-color;
     }
   }
 
   .post-meta {
-    color: $color;
+    color: variables.$color;
   }
 }
 
@@ -47,13 +47,13 @@ header {
 }
 
 .btn-primary {
-  background-color: $button-color;
-  border-color: $button-border-color;
+  background-color: variables.$button-color;
+  border-color: variables.$button-border-color;
   font-size: 1.125rem;
 
   &:hover, &:focus, &:active {
-    background-color: $link-color !important;
-    border-color: $button-border-color-hover !important;
+    background-color: variables.$link-color !important;
+    border-color: variables.$button-border-color-hover !important;
   }
 }
 
@@ -62,7 +62,7 @@ header {
 }
 
 #mainNav {
-  background-color: $bg-color;
+  background-color: variables.$bg-color;
 
   .navbar-brand {
     color: #fff;
@@ -83,16 +83,16 @@ header {
     }
 
     &.is-fixed {
-      color: $color;
-      background-color: $bg-color;
+      color: variables.$color;
+      background-color: variables.$bg-color;
       opacity: 0.9;
 
       .navbar-brand {
-        color: $color;
+        color: variables.$color;
       }
 
       .navbar-nav > li.nav-item > a {
-        color: $color;
+        color: variables.$color;
       }
     }
   }
@@ -103,7 +103,7 @@ header {
 }
 
 .svg-inline--fa {
-  background-color: $color;
+  background-color: variables.$color;
   display: var(--fa-display,inline-block);
   height: 1em;
   overflow: visible;
