@@ -15,7 +15,7 @@
         "source": "https://github.com/renecatharsis/harangiert-blog"
     },
     "require": {
-        "php": "^8.2",
+        "php": "^8.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/doctrine-bundle": "^2.5",

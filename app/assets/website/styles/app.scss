@@ -1,9 +1,11 @@
+@use "sass:meta";
+
 @import "~startbootstrap-clean-blog/dist/css/styles.css";
 @import "~blueimp-gallery/css/blueimp-gallery.min.css";
 @import "~glightbox/dist/css/glightbox.min.css";
 
-@import "app-overrides";
-@import "map";
-@import "gallery";
-@import "inline-images";
+@include meta.load-css("app-overrides");
+@include meta.load-css("map");
+@include meta.load-css("gallery");
+@include meta.load-css("inline-images");
 
