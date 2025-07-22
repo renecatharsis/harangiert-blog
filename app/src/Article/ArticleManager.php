@@ -1,8 +1,10 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Article;
 
-use App\Page\Types;
+use App\Page\Type;
 use PHPCR\Query\QOM\QueryObjectModelConstantsInterface;
 use PHPCR\Query\QueryInterface;
 use PHPCR\SessionInterface;
@@ -32,7 +34,7 @@ class ArticleManager implements ArticleManagerInterface
         $this->session = $session;
     }
 
-    public function getLatest(int $amount = null, string $excludedUuid = null): array
+    public function getLatest(?int $amount = null, ?string $excludedUuid = null): array
     {
         return $this->getAllStructuresSortedByCreatedDate($amount, $excludedUuid);
     }
@@ -81,7 +83,7 @@ class ArticleManager implements ArticleManagerInterface
 
     protected function getClosestSiblingByDateCondition(StructureInterface $structure, string $condition, string $orderBy = 'DESC')
     {
-        $qb = $this->getQueryBuilderForAllPagesByTemplate(Types::ARTICLE);
+        $qb = $this->getQueryBuilderForAllPagesByTemplate(Type::ARTICLE);
         $qb = $this->excludeUuid($qb, (string)$structure->getUuid());
 
         $qb
@@ -115,9 +117,9 @@ class ArticleManager implements ArticleManagerInterface
         return current($data);
     }
 
-    protected function getAllStructuresSortedByCreatedDate(int $amount = null, string $excludedUuid = null): array
+    protected function getAllStructuresSortedByCreatedDate(?int $amount = null, ?string $excludedUuid = null): array
     {
-        $qb = $this->getQueryBuilderForAllPagesByTemplate(Types::ARTICLE);
+        $qb = $this->getQueryBuilderForAllPagesByTemplate(Type::ARTICLE);
 
         if (null !== $amount) {
             $qb->setMaxResults($amount);
@@ -140,7 +142,7 @@ class ArticleManager implements ArticleManagerInterface
         return $this->executeQuery($qb->getQuery());
     }
 
-    protected function getQueryBuilderForAllPagesByTemplate(string $template): QueryBuilder
+    protected function getQueryBuilderForAllPagesByTemplate(Type $template): QueryBuilder
     {
         $qb = $this->getQueryBuilder();
 
@@ -151,7 +153,7 @@ class ArticleManager implements ArticleManagerInterface
                     $this->requestAnalyzer->getCurrentLocalization()->getLocale()
                 )),
                 QueryObjectModelConstantsInterface::JCR_OPERATOR_EQUAL_TO,
-                $qb->qomf()->literal($template)
+                $qb->qomf()->literal($template->value)
             )
         );
 
