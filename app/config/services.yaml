@@ -29,6 +29,9 @@ services:
             - { name: 'kernel.event_subscriber' }
             - { name: 'sulu.context', context: 'website' }
 
+    App\EventListener\HttpNotAcceptableExceptionListener:
+      tags: [kernel.event_listener]
+
     App\Article\ArticleManager:
         arguments:
             - '@sulu_document_manager.document_manager'
