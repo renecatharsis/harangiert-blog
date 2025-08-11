@@ -16,11 +16,10 @@
         <default-template type="home">homepage</default-template>
     </default-templates>
 
-
     <templates>
-        <template type="search">search.html.twig</template>
-        <template type="error">error/default.html.twig</template>
-        <template type="error-404">error/404.html.twig</template>
+        <template type="search">search</template>
+        <template type="error">error/default</template>
+        <template type="error-404">error/404</template>
     </templates>
 
     <navigation>
