@@ -1,0 +1,7 @@
+services:
+  php:
+    build:
+      dockerfile: Dockerfile
+      target: prod
+    env_file:
+      - .env
