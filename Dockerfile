@@ -17,6 +17,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 
 WORKDIR /var/www/html
 
+
 # don't preinstall anything for local dev
 # dev includes xdebug
 FROM base AS dev
@@ -25,9 +26,20 @@ COPY ./php/php.ini /usr/local/etc/php/conf.d/
 COPY ./php/99-xdebug.ini /usr/local/etc/php/conf.d/
 RUN pecl install xdebug-3.4.6 && docker-php-ext-enable xdebug
 
+
 FROM base AS prod
 
 COPY ./php/php.ini /usr/local/etc/php/conf.d/
 COPY ./php/php.prod.ini /usr/local/etc/php/conf.d/
 COPY ./app /var/www/html/
 RUN composer install --no-scripts --no-dev --optimize-autoloader
+
+# add script to execute composer scripts that can only run after build
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+WORKDIR /var/www/html
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+# keep php-fpm as default command
+CMD ["php-fpm"]

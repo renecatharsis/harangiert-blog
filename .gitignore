@@ -11,3 +11,6 @@
 # local dev
 .env
 db_data
+
+# keep symfony .env which is only required to not crash on missing .env file
+!app/.env
