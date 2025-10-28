@@ -10,6 +10,10 @@ services:
     build:
       dockerfile: Dockerfile
       target: prod
+    networks:
+      default:
+        aliases:
+          - harangiert-php-fpm
     env_file:
       - .env
     restart: always
