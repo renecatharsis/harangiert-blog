@@ -14,7 +14,8 @@ services:
       dockerfile: Dockerfile
       target: prod
     volumes:
-      - "./../media:/var/www/html/var/uploads/media"
+      - "./../upload_media:/var/www/html/var/uploads/media"
+      - "./../public_media:/var/www/html/public/uploads/media"
     networks:
       default:
         aliases:
