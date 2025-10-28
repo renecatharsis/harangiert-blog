@@ -1,7 +1,15 @@
 services:
+  web:
+    volumes:
+      - "./nginx/harangiert.de.conf:/etc/nginx/conf.d/harangiert.de.conf"
+      - "./app:/var/www/html"
+    ports:
+      - "8001:80"
+
   php:
     build:
       dockerfile: Dockerfile
       target: prod
     env_file:
       - .env
+    restart: always

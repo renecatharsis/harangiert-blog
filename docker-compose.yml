@@ -1,0 +1,5 @@
+services:
+  web:
+    image: nginx:1.27.5-alpine
+    depends_on:
+      - php
