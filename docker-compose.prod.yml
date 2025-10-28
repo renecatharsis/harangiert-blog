@@ -5,7 +5,6 @@ services:
       - "./app/public/build:/var/www/html/public/build"
       - "./app/public/favicon.ico:/var/www/html/public/favicon.ico"
       - "./app/public/robots.txt:/var/www/html/public/robots.txt"
-      - "./../media:/var/www/html/public/uploads/media"
     ports:
       - "8001:80"
     restart: always
@@ -15,7 +14,7 @@ services:
       dockerfile: Dockerfile
       target: prod
     volumes:
-      - "./../media:/var/www/html/public/uploads/media"
+      - "./../media:/var/www/html/var/uploads/media"
     networks:
       default:
         aliases:
