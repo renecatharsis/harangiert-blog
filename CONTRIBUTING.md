@@ -22,4 +22,4 @@ Please note we have a code of conduct, please follow it in all your interactions
 ## Code of Conduct
 
 * English only, even if the main website is German
-* Be polite in your issues, otherwise they might just as well be ignored
+* Be polite in your issues, otherwise they might just get closed

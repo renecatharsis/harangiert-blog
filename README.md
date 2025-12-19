@@ -41,4 +41,4 @@ Add one if you wish to or connect to a local or external database.
 * run `cp .env.dist .env` and adjust settings as you wish
   * make sure to set `COMPOSE_FILE=docker-compose.yml:docker-compose.prod.yml`
 * run `./build.sh`
-* run `docker-compose up -d --build` 
+* run `docker compose up -d --build` 
