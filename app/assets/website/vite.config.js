@@ -7,8 +7,9 @@ export default defineConfig({
         symfonyPlugin(),
         tailwindcss(),
     ],
+    base: '/build/website/',
     build: {
-        outDir: '../../../public/build/website',
+        outDir: '../../public/build/website',
         rollupOptions: {
             input: {
                 app: "./src/app.js"
