@@ -1,6 +1,17 @@
-<div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel" data-sources="{{ gallery_images(block.images)|json_encode }}">
-    <div class="slides"></div>
-    <h3 class="title"></h3>
-    <span class="prev"></span>
-    <span class="next"></span>
+<div class="w-full max-w-xl mx-auto text-zinc-800">
+    <div class="embla overflow-hidden">
+        <div class="flex">
+            {% for image in block.images %}
+            <div class="relative flex grow-0 shrink-0 basis-full">
+                <img alt="{{ image.description }}" src="{{ image.formats['547x410'] }}" class="w-full border-white border-1 p-1"/>
+                <span class="absolute bottom-4 left-4 text-2xl font-bold">{{ image.description }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mt-2 flex gap-4">
+        <button class="btn-gallery btn-gallery-prev">&larr;</button>
+        <button class="btn-gallery btn-gallery-next">&rarr;</button>
+    </div>
 </div>

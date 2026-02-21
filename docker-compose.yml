@@ -1,5 +1,5 @@
 services:
   web:
-    image: nginx:1.28.0-alpine
+    image: nginx:1.28.2-alpine
     depends_on:
       - php

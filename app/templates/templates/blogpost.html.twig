@@ -12,10 +12,10 @@
 
 {% block content %}
     {% set authorObject = sulu_resolve_user(author) %}
-    <section class="module-blog block-blog-index">
+    <section class="mx-4 md:max-w-3xl md:mx-auto pt-12 pb-20 text-zinc-200">
         <article itemscope itemtype="https://schema.org/Blog" role="main">
             <meta itemprop="author" content="{{ authorObject.contact.firstName|default('') ~ ' ' ~ authorObject.contact.lastName|default('') }}">
-            <h1 class="section-heading">{{ content.title }}</h1>
+            <h1 class="text-5xl font-bold pb-8">{{ content.title }}</h1>
 
             {% if content.blocks|length > 0 %}
                 {% for block in content.blocks %}
@@ -23,13 +23,13 @@
                 {% endfor %}
             {% endif %}
 
-            <footer class="block-footer">
-                <div class="d-flex flex-wrap justify-content-between gap-3">
+            <footer class="pt-16">
+                <div class="flex flex-wrap justify-content-between gap-3">
                     {% if previousArticle is defined and null != previousArticle %}
-                        <a class="btn btn-primary w-100" href="{{ previousArticle.urls[app.request.locale] }}">&larr; Letzter Beitrag</a>
+                        <a class="btn-blogpost" href="{{ previousArticle.urls[app.request.locale] }}">&larr; Letzter Beitrag</a>
                     {% endif %}
                     {% if nextArticle is defined and null != nextArticle %}
-                        <a class="btn btn-primary w-100" href="{{ nextArticle.urls[app.request.locale] }}">Nächster Beitrag &rarr;</a>
+                        <a class="btn-blogpost" href="{{ nextArticle.urls[app.request.locale] }}">Nächster Beitrag &rarr;</a>
                     {% endif %}
                 </div>
             </footer>
