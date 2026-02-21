@@ -1,12 +1,12 @@
 (function() {
     "use strict";
 
-    let svg = document.querySelector('.map-draggable');
+    let svg = document.getElementById('map');
     if (null === svg) {
         return;
     }
 
-    // If browser supports pointer events
+    // If the browser supports pointer events
     if (window.PointerEvent) {
         svg.addEventListener('pointerdown', onPointerDown, {passive: true}); // Pointer is pressed
         svg.addEventListener('pointerup', onPointerUp, {passive: true}); // Releasing the pointer
@@ -25,9 +25,9 @@
         svg.addEventListener('touchmove', onPointerMove, {passive: true}); // Finger is moving
     }
 
-    // This variable will be used later for move events to check if pointer is down or not
+    // This variable will be used later for move events to check if a pointer is down or not
     let isPointerDown = false;
-    // This variable will contain the original coordinates when the user start pressing the mouse or touching the screen
+    // This variable will contain the original coordinates when the user starts pressing the mouse or touching the screen
     let pointerOrigin = {
         x: 0,
         y: 0
@@ -82,7 +82,7 @@
         return point;
     }
 
-    // Function called by the event listeners when user start pressing/touching
+    // Function called by the event listeners when user starts pressing/touching
     function onPointerDown(event) {
         isPointerDown = true; // We set the pointer as down
 
@@ -92,13 +92,13 @@
         pointerOrigin.y = pointerPosition.y;
     }
 
-    // Function called by the event listeners when user start moving/dragging
+    // Function called by the event listeners when user starts moving/dragging
     function onPointerMove(event) {
         // Only run this function if the pointer is down
         if (!isPointerDown) {
             return;
         }
-        // This prevent user to do a selection on the page
+        // This prevents user to do a selection on the page
         // event.preventDefault();
 
         // Get the pointer position

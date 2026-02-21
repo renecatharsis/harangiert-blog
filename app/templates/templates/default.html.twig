@@ -11,10 +11,11 @@
 {% endblock %}
 
 {% block content %}
-    <h1 property="title">{{ content.title }}</h1>
-
-    <div property="article">
-{#        CKEditor5 doesn't support inline html editing anymore, so we have to hardcode bootstrap classes here#}
-        {{ content.article|replace({'<table>': '<table class="table table-striped">'})|raw }}
+<main class="max-w-3xl mx-4 md:mx-auto pt-80 pb-20 text-zinc-200">
+    <h1 class="text-5xl pb-4" property="title">{{ content.title }}</h1>
+    <div class="text-xl" property="article">
+        {{ content.article|tailwind_rich_text|raw }}
     </div>
+</main>
+
 {% endblock %}

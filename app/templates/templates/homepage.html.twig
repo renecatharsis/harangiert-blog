@@ -11,37 +11,49 @@
 {% endblock %}
 
 {% block content %}
+<section class="py-20">
+    <div class="max-w-3xl mx-auto px-6 text-center">
     {% cache 'map' ttl(map_cache_lifetime) %}
         {% include 'partials/map.html.twig' %}
     {% endcache %}
 
     {% if content.map_intro %}
-        <h2 class="h6">{{ content.map_intro|raw }}</h2>
+        <div class="text-zinc-200">
+            <h2 class="py-10 text-center text-xl font-bold">{{ content.map_intro|raw }}</h2>
+            <hr class="max-w-4xl mx-auto px-6">
+        </div>
     {% endif %}
-
-    <hr>
-
-    {% if content.blog_intro %}
-        <h2>{{ content.blog_intro|raw }}</h2>
-    {% endif %}
-
-    {% for article in articles %}
-    <div class="post-preview">
-        <a href="{{ article.urls[app.request.locale] }}">
-            {% set page = sulu_content_load(article.uuid) %}
-            <h2 class="post-title">
-                {{ page.content.heading_title|default('') }}
-            </h2>
-            <h3 class="post-subtitle">
-                {{ get_article_text(page)|default('')|slice(0, 200)|raw }}...
-            </h3>
-        </a>
-        {% set authorObject = sulu_resolve_user(author) %}
-        <span class="post-meta">Veröffentlicht
-            von {{ authorObject.contact.firstName|default('') }}
-            am {{ article.document.published|date('d.m.Y') }}
-        </span>
     </div>
-    <hr>
-    {% endfor %}
+</section>
+
+<main class="pb-20 text-zinc-200">
+    <div class="max-w-3xl mx-auto px-6">
+        {% if content.blog_intro %}
+            <h2 class="text-4xl font-bold mb-12 text-center">{{ content.blog_intro|raw }}</h2>
+        {% endif %}
+
+        <div class="space-y-10 text-zinc-200">
+            {% for article in articles %}
+                {% set page = sulu_content_load(article.uuid) %}
+                <a href="{{ article.urls[app.request.locale] }}" class="hover:text-blue-300">
+                    <article class="p-2">
+                        <h3 class="text-3xl font-extrabold mb-6">{{ page.content.heading_title|default('') }}</h3>
+                        <h4 class="text-3xl font-light mb-4">
+                            {{ get_article_text(page)|default('')|slice(0, 200)|raw }}...
+                        </h4>
+                        <p class="text-lg italic mt-6">
+                            {% set authorObject = sulu_resolve_user(author) %}
+                            Veröffentlicht
+                                von {{ authorObject.contact.firstName|default('') }}
+                                am {{ article.document.published|date('d.m.Y') }}
+                        </p>
+                    </article>
+                </a>
+                {% if _key + 1 < articles|length %}
+                    <hr class="mt-5 mb-10">
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</main>
 {% endblock %}

@@ -39,7 +39,7 @@ class MapExtension extends AbstractExtension
         if (null !== $page) {
             $attributes = [
                 'href' => $page->getUrl(),
-                'class' => 'highlight',
+                'class' => 'font-bold',
                 'onclick' => ';'
             ];
         }

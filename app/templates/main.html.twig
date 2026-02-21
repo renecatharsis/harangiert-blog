@@ -9,26 +9,16 @@
 
         {% include 'sections/open_graph.html.twig' %}
 
-        {{ encore_entry_link_tags('app') }}
-
-        {% block style %}{% endblock %}
+        {{ vite_entry_link_tags('app') }}
     </head>
-    <body>
+    <body class="bg-zinc-800 text-gray-800">
         {% include 'partials/navigation.html.twig' %}
         {% include 'partials/heading.html.twig' %}
 
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    {% block content %}{% endblock %}
-                </div>
-            </div>
-        </div>
+        {% block content %}{% endblock %}
 
         {% include 'partials/footer.html.twig' %}
 
-        {{ encore_entry_script_tags('app') }}
-
-        {% block javascripts %}{% endblock %}
+        {{ vite_entry_script_tags('app') }}
     </body>
 </html>

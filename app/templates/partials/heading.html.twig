@@ -3,23 +3,24 @@
     {% set defaultImage = image.thumbnails["1920x1080"] %}
 {% endif %}
 
-<header class="masthead" {% if defaultImage is defined %}style="height: 100vh; background-image: linear-gradient(to top, #1c1c21, rgba(255,0,0,0)), url('{{ asset(defaultImage) }}')"{% endif %}>
-    <div class="container position-relative px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <div class="{% if 'blogpost' == template %}post-heading{% else %}site-heading{% endif %}">
-                    <h1>{{ content.heading_title|default('') }}</h1>
-                    <span class="subheading">{{ content.heading_sub|default('') }}</span>
-                    {% if 'blogpost' == template %}
-                        <span class="subheading">
-                            {% set authorObject = sulu_resolve_user(author) %}
-                            Veröffentlicht
-                            von {{ authorObject.contact.firstName|default('') }}
-                            am {{ created|date('d.m.Y') }}
-                        </span>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
+<header class="flex items-center justify-center bg-cover bg-center relative"
+    {% if defaultImage is defined %}style="height: 100vh; background-image: url('{{ asset(defaultImage) }}')"{% endif %}
+>
+    <div class="absolute inset-0 bg-gradient-to-t from-zinc-800 to-transparent"></div>
+    <div class="relative text-left text-white px-6 w-full {% if 'blogpost' == template %}md:max-w-1/2 {% else %}md:max-w-1/3 {% endif %}">
+        <h1 class="text-6xl md:text-7xl font-extrabold mb-4">
+            {{ content.heading_title|default('') }}
+        </h1>
+        <p class="text-xl md:text-2xl opacity-90">
+            {{ content.heading_sub|default('') }}
+        </p>
+        {% if 'blogpost' == template %}
+            <p class="text-3xl mt-8">
+                {% set authorObject = sulu_resolve_user(author) %}
+                Veröffentlicht
+                von {{ authorObject.contact.firstName|default('') }}
+                am {{ created|date('d.m.Y') }}
+            </p>
+        {% endif %}
     </div>
 </header>

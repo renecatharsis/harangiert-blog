@@ -1,5 +1,5 @@
 # prod is default
-FROM php:8.4.16-fpm-trixie AS base
+FROM php:8.4.18-fpm-trixie AS base
 
 RUN apt-get update && \
     apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev libwebp-dev libicu-dev libzip-dev unzip
@@ -34,6 +34,8 @@ COPY ./php/php.ini /usr/local/etc/php/conf.d/
 COPY ./php/php.prod.ini /usr/local/etc/php/conf.d/
 COPY ./app /var/www/html/
 RUN composer install --no-scripts --no-dev --optimize-autoloader
+RUN chown -R www-data:root /var/www/html/var/cache && chmod -R 774 /var/www/html/var/cache
+RUN chown -R www-data:root /var/www/html/var/storage && chmod -R 774 /var/www/html/var/storage
 
 # don't run as root
 USER www-data

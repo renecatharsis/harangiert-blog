@@ -3,7 +3,6 @@ set -e  # Exit immediately if a command exits with a non-zero status
 
 echo "Starting build process..."
 
-NODE="node:20"
 COMPOSER="composer:2.8.12" # make sure the php version of this image matches our Dockerfile base
 
 # admin build required scripts from sulu's vendor directory
@@ -16,13 +15,13 @@ docker run --rm \
 docker run --rm \
   -v "$(pwd)/app":/opt/app \
   -w /opt/app/assets/admin \
-  "$NODE" \
+  "node:20" \
   bash -c "npm install && npm run build && rm -rf node_modules"
 
 docker run --rm \
   -v "$(pwd)/app":/opt/app \
   -w /opt/app/assets/website \
-  "$NODE" \
+  "node:24" \
   bash -c "npm install && npm run build && rm -rf node_modules"
 
 # remove local composer vendor directory

@@ -21,7 +21,7 @@ class SuluExtension extends AbstractExtension
     public function getFilters(): array
     {
         return [
-            new TwigFilter('filter_rich_text', [$this, 'filterRichTextEditor']),
+            new TwigFilter('tailwind_rich_text', [$this, 'addTailwindClassesToRichTextEditor']),
         ];
     }
 
@@ -32,9 +32,13 @@ class SuluExtension extends AbstractExtension
         ];
     }
 
-    public function filterRichTextEditor(string $str): string
+    public function addTailwindClassesToRichTextEditor(string $str): string
     {
-        return preg_replace('!^<p>(.*?)</p>$!i', '$1', $str);
+        return str_replace([
+            '<h1>', '<h2>', '<p>', '<a ',
+        ], [
+            '<h1 class="text-3xl font-bold mb-4">', '<h2 class="text-2xl font-bold mb-4">', '<p class="text-2xl mt-4 mb-4">', '<a class="underline" '
+        ], $str);
     }
 
     public function getAbsoluteUrl(?string $path = null): string
