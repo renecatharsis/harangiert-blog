@@ -43,7 +43,7 @@
         "core-js": "^3.18.0",
         "css-loader": "^6.10.0",
         "css-minimizer-webpack-plugin": "^6.0.0",
-        "glob": "^10.3.10",
+        "glob": "^13.0.6",
         "mini-css-extract-plugin": "^2.7.1",
         "postcss": "^8.4.14",
         "postcss-calc": "^9.0.1",

@@ -15,7 +15,7 @@ docker run --rm \
 docker run --rm \
   -v "$(pwd)/app":/opt/app \
   -w /opt/app/assets/admin \
-  "node:20" \
+  "node:22" \
   bash -c "npm install && npm run build && rm -rf node_modules"
 
 docker run --rm \
@@ -28,7 +28,8 @@ docker run --rm \
 rm -rf app/vendor/
 
 echo "Cleaning up Docker image..."
-docker rmi -f "$NODE" || echo "Could not remove image $NODE (it may be in use or already removed)."
+docker rmi -f "node:22" || echo "Could not remove image node:22 (it may be in use or already removed)."
+docker rmi -f "node:24" || echo "Could not remove image node:24 (it may be in use or already removed)."
 docker rmi -f "$COMPOSER" || echo "Could not remove image $COMPOSER (it may be in use or already removed)."
 
 echo "Build completed successfully."
