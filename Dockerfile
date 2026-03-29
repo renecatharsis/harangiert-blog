@@ -34,8 +34,9 @@ COPY ./php/php.ini /usr/local/etc/php/conf.d/
 COPY ./php/php.prod.ini /usr/local/etc/php/conf.d/
 COPY ./app /var/www/html/
 RUN composer install --no-scripts --no-dev --optimize-autoloader
-RUN chown -R www-data:root /var/www/html/var/cache && chmod -R 774 /var/www/html/var/cache
-RUN chown -R www-data:root /var/www/html/var/storage && chmod -R 774 /var/www/html/var/storage
+RUN mkdir -p /var/www/html/var/cache && chown -R www-data:root /var/www/html/var/cache && chmod -R 774 /var/www/html/var/cache
+RUN mkdir -p /var/www/html/var/storage && chown -R www-data:root /var/www/html/var/storage && chmod -R 774 /var/www/html/var/storage
+RUN mkdir -p /var/www/html/var/log && chown -R www-data:root /var/www/html/var/log && chmod -R 774 /var/www/html/var/log
 
 # don't run as root
 USER www-data
