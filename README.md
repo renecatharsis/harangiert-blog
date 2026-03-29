@@ -15,7 +15,7 @@ setting you prefer.
 Documentation on how to install Docker and docker-compose is not included here.
 
 * run `cp .env.dist .env` and adjust settings as you wish
-* run `docker-compose up -d --build`
+* run `docker compose up -d --build`
 * run `docker exec -it harangiert_php composer install`
 * run `docker exec -it harangiert_php php bin/adminconsole doctrine:database:create --if-not-exists`
 * run `docker exec -it harangiert_php php bin/adminconsole sulu:build dev`

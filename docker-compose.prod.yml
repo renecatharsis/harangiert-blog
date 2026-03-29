@@ -8,7 +8,7 @@ services:
       - "./../upload_media:/var/www/html/var/uploads/media"
       - "./../public_media:/var/www/html/public/uploads/media"
     ports:
-      - "8001:80"
+      - "${PROXY_PORT:-8001}:80"
     restart: always
 
   php:
