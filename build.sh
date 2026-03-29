@@ -16,13 +16,13 @@ docker run --rm \
   -v "$(pwd)/app":/opt/app \
   -w /opt/app/assets/admin \
   "node:22" \
-  bash -c "npm install && npm run build && rm -rf node_modules"
+  bash -c "corepack enable && pnpm install && pnpm build && rm -rf node_modules"
 
 docker run --rm \
   -v "$(pwd)/app":/opt/app \
   -w /opt/app/assets/website \
   "node:24" \
-  bash -c "npm install && npm run build && rm -rf node_modules"
+  bash -c "corepack enable && pnpm install && pnpm build && rm -rf node_modules"
 
 # remove local composer vendor directory
 rm -rf app/vendor/

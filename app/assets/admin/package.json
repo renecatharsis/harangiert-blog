@@ -58,10 +58,7 @@
         "webpack-manifest-plugin": "^5.0.0"
     },
     "engines": {
-        "node": ">=14",
-        "yarn": "use 'npm install' instead",
-        "bun": "^1.0",
-        "pnpm": "^8.0",
-        "npm": "8.* || 9.* || 10.*"
+        "node": ">=24.13.1 <25.0.0",
+        "pnpm": "^10.0"
     }
 }
