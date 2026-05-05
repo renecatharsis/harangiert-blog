@@ -26,6 +26,7 @@
         "pentatrion/vite-bundle": "^8.2",
         "phpcr/phpcr-migrations-bundle": "^1.5",
         "phpcr/phpcr-shell": "^1.5",
+        "runtime/frankenphp-symfony": "^1.0",
         "scheb/2fa-bundle": "^7.2",
         "scheb/2fa-email": "^7.2",
         "scheb/2fa-trusted-device": "^7.2",
@@ -184,6 +185,9 @@
         "symfony": {
             "allow-contrib": true,
             "require": "6.4.*"
+        },
+        "runtime": {
+            "class": "Runtime\\FrankenPhpSymfony\\Runtime"
         }
     }
 }

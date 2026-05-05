@@ -25,3 +25,17 @@ services:
     env_file:
       - .env
     restart: always
+
+  frankenphp:
+    build:
+      dockerfile: Dockerfile.frankenphp
+      target: prod
+    volumes:
+      - .:/var/www/app
+      - ./caddy/Caddyfile.prod:/etc/frankenphp/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    ports:
+      - "${PROXY_PORT:-8002}:80"
+#      - "4431:443"
+#      - "4431:443/udp"

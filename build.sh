@@ -3,7 +3,7 @@ set -e  # Exit immediately if a command exits with a non-zero status
 
 echo "Starting build process..."
 
-COMPOSER="composer:2.9.5" # make sure the php version of this image matches our Dockerfile base
+COMPOSER="composer:2.9.6" # make sure the php version of this image matches our Dockerfile base
 NODE="node:24"
 
 # admin build required scripts from sulu's vendor directory

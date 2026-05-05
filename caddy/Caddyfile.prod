@@ -1,0 +1,4 @@
+harangiert.de, www.harangiert.de {
+    root /var/www/app/public
+    php_server
+}

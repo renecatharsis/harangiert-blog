@@ -1,0 +1,6 @@
+localhost {
+    root /var/www/app/public
+    php_server {
+        worker index.php 4
+    }
+}

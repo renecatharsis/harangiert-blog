@@ -4,7 +4,7 @@ services:
       - "./nginx/localhost.conf:/etc/nginx/conf.d/default.conf"
       - "./app:/var/www/html"
     ports:
-      - "${PROXY_PORT:-8000}:80"
+      - "${PROXY_PORT_NGINX_HTTP:-8000}:80"
 
   php:
     build:
@@ -22,6 +22,23 @@ services:
     env_file:
       - .env
 
+  frankenphp:
+    build:
+      dockerfile: Dockerfile.frankenphp
+      target: dev
+    container_name: harangiert_frankenphp
+    volumes:
+      - ./app:/var/www/app
+      - ./caddy/Caddyfile.local:/etc/frankenphp/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    env_file:
+      - .env
+    ports:
+      - "${PROXY_PORT_CADDY_HTTP:-8001}:80"
+      - "${PROXY_PORT_CADDY_HTTPS:-4331}:443"
+      - "${PROXY_PORT_CADDY_HTTPS:-4331}:443/udp"
+
   db:
     image: mariadb:10.11
     ports:
@@ -37,3 +54,7 @@ services:
       default:
         aliases:
           - harangiert-db
+
+volumes:
+  caddy_data:
+  caddy_config:

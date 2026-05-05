@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 use App\Kernel;
+use App\DualKernel;
 use Sulu\Component\HttpKernel\SuluKernel;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\ErrorHandler\Debug;
@@ -30,8 +31,12 @@ if (SULU_MAINTENANCE) {
 
 require \dirname(__DIR__) . '/vendor/autoload.php';
 
+//return function (array $context) {
+//    return new DualKernel($context);
+//};
+
 if (is_file(\dirname(__DIR__) . '/.env')) {
-    (new Dotenv())->bootEnv(\dirname(__DIR__) . '/.env');
+    new Dotenv()->bootEnv(\dirname(__DIR__) . '/.env');
 }
 
 if ($_SERVER['APP_DEBUG']) {
@@ -48,13 +53,30 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
     Request::setTrustedHosts([$trustedHosts]);
 }
 
+// for Caddy with frankenphp
+//if (isset($_SERVER['SERVER_SOFTWARE']) && 'FrankenPHP' === $_SERVER['SERVER_SOFTWARE']) {
+//    return function (array $context) {
+//        dd('foo');
+//        return new DualKernel($context);
+//    };
+//}
+
+// for nginx with php-fpm
 $suluContext = SuluKernel::CONTEXT_WEBSITE;
 
 if (\preg_match('/^\/admin(\/|$)/', $_SERVER['REQUEST_URI'])) {
     $suluContext = SuluKernel::CONTEXT_ADMIN;
 }
 
-$kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG'], $suluContext);
+// for Caddy with frankenphp
+if (isset($_SERVER['SERVER_SOFTWARE']) && 'FrankenPHP' === $_SERVER['SERVER_SOFTWARE']) {
+    $kernel = new DualKernel($_SERVER);
+//    return function (array $context) {
+//        return new DualKernel($context);
+//    };
+} else {
+    $kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG'], $suluContext);
+}
 
 // Comment this line if you want to use the "varnish" http
 // caching strategy. See http://sulu.readthedocs.org/en/latest/cookbook/caching-with-varnish.html

@@ -1,5 +1,5 @@
 # prod is default
-FROM php:8.5.5-fpm-trixie AS base
+FROM dunglas/frankenphp:1.12.2-php8.5-trixie AS base
 
 RUN apt-get update && \
     apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev libwebp-dev libicu-dev libzip-dev unzip
@@ -15,6 +15,15 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     php composer-setup.php --install-dir=/usr/local/bin --filename=composer --version=2.9.6 && \
     php -r "unlink('composer-setup.php');"
 
+ARG USER=frankenphp
+RUN <<-EOF
+    useradd ${USER}
+    # Add additional capability to bind to port 80 and 443
+    setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/frankenphp
+    # Give write access to /config/caddy and /data/caddy
+    chown -R ${USER}:${USER} /config/caddy /data/caddy
+EOF
+
 WORKDIR /var/www/html
 
 # don't preinstall anything for local dev
@@ -26,7 +35,7 @@ COPY ./php/99-xdebug.ini /usr/local/etc/php/conf.d/
 RUN pecl install xdebug-3.5.1 && docker-php-ext-enable xdebug
 
 # don't run as root
-USER www-data
+USER ${USER}
 
 FROM base AS prod
 
@@ -39,7 +48,4 @@ RUN mkdir -p /var/www/html/var/storage && chown -R www-data:root /var/www/html/v
 RUN mkdir -p /var/www/html/var/log && chown -R www-data:root /var/www/html/var/log && chmod -R 774 /var/www/html/var/log
 
 # don't run as root
-USER www-data
-
-# keep php-fpm as default command
-CMD ["php-fpm"]
+USER ${USER}

@@ -29,6 +29,10 @@ Documentation on how to install Docker and docker-compose is not included here.
 After you've finished the installation, you only need to run `docker compose up -d`
 when booting the project another time.
 
+### Accessing the application
+* visit `http://localhost:8080` for nginx + php-fpm
+* visit `https://localhost:4331` for Caddy + frankenphp
+
 ### Differences for production builds
 Production build doesn't boot any database.
 Add one if you wish to or connect to a local or external database.
