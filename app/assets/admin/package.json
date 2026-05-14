@@ -58,7 +58,7 @@
         "webpack-manifest-plugin": "^5.0.0"
     },
     "engines": {
-        "node": ">=24.13.1 <25.0.0",
-        "pnpm": "^10.0"
+        "node": ">=24.15.0 <25.0.0",
+        "pnpm": "^10"
     }
 }

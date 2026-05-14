@@ -20,11 +20,11 @@ Documentation on how to install Docker and docker-compose is not included here.
 * run `docker exec -it harangiert_php php bin/adminconsole doctrine:database:create --if-not-exists`
 * run `docker exec -it harangiert_php php bin/adminconsole sulu:build dev`
 * run `docker exec -it harangiert_php php bin/adminconsole assets:install`
-* run `cd app/assets/admin && nvm use && npm install`
-* run `cd app/assets/website && nvm use && npm install`
+* run `cd app/assets/admin && nvm use && corepack prepare pnpm@10.33.3 --activate && corepack enable && pnpm install`
+* run `cd app/assets/website && nvm use && corepack prepare pnpm@10.33.3 --activate && corepack enable && pnpm install`
 * watch frontend changes
-  * run `cd app/assets/admin && nvm use && npm run watch`
-  * run `cd app/assets/website && nvm use && npm run dev`
+  * run `cd app/assets/admin && nvm use && corepack prepare pnpm@10.33.3 --activate && corepack enable && pnpm run watch`
+  * run `cd app/assets/website && nvm use && corepack prepare pnpm@10.33.3 --activate && corepack enable && pnpm run dev`
 
 After you've finished the installation, you only need to run `docker compose up -d`
 when booting the project another time.
