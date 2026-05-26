@@ -17,19 +17,19 @@ docker run --rm \
   -v "$(pwd)/app":/opt/app \
   -w /opt/app/assets/admin \
   "$NODE" \
-  bash -c "corepack prepare pnpm@10.33.3 --activate && corepack enable && pnpm install && pnpm build && rm -rf node_modules"
+  bash -c "corepack prepare pnpm@10.33.4 --activate && corepack enable && pnpm install && pnpm build && rm -rf node_modules"
 
 docker run --rm \
   -v "$(pwd)/app":/opt/app \
   -w /opt/app/assets/website \
   "$NODE" \
-  bash -c "corepack prepare pnpm@10.33.3 --activate && corepack enable && pnpm install && pnpm build && rm -rf node_modules"
+  bash -c "corepack prepare pnpm@10.33.4 --activate && corepack enable && pnpm install && pnpm build && rm -rf node_modules"
 
 # remove local composer vendor directory
 rm -rf app/vendor/
 
 echo "Cleaning up Docker image..."
-docker rmi -f "$NODE" || echo "Could not remove image node:24 (it may be in use or already removed)."
+docker rmi -f "$NODE" || echo "Could not remove image $NODE (it may be in use or already removed)."
 docker rmi -f "$COMPOSER" || echo "Could not remove image $COMPOSER (it may be in use or already removed)."
 
 echo "Build completed successfully."
