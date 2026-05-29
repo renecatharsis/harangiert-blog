@@ -12,7 +12,7 @@ RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-w
     docker-php-ext-install zip
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
-    php composer-setup.php --install-dir=/usr/local/bin --filename=composer --version=2.9.8 && \
+    php composer-setup.php --install-dir=/usr/local/bin --filename=composer --version=2.10.0 && \
     php -r "unlink('composer-setup.php');"
 
 WORKDIR /var/www/html
