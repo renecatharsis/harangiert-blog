@@ -1,5 +1,5 @@
 # prod is default
-FROM php:8.5.6-fpm-trixie AS base
+FROM php:8.5.8-fpm-trixie AS base
 
 RUN apt-get update && \
     apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev libwebp-dev libicu-dev libzip-dev unzip
