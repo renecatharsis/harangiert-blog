@@ -44,7 +44,7 @@
         "css-minimizer-webpack-plugin": "^8.0.0",
         "glob": "^13.0.6",
         "mini-css-extract-plugin": "^2.10.2",
-        "postcss": "^8.5.22",
+        "postcss": "^8.5.25",
         "postcss-calc": "^9.0.1",
         "postcss-hexrgba": "^2.1.0",
         "postcss-import": "^16.1.1",
