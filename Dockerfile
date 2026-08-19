@@ -1,5 +1,5 @@
 # prod is default
-FROM php:8.5.8-fpm-trixie AS base
+FROM php:8.5.9-fpm-trixie@sha256:32ef9f35b567a741f24c5d2c3312f803fe6c9e34b7db46212f95fce675e1d13f AS base
 
 RUN apt-get update && \
     apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev libwebp-dev libicu-dev libzip-dev unzip
@@ -12,7 +12,7 @@ RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-w
     docker-php-ext-install zip
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
-    php composer-setup.php --install-dir=/usr/local/bin --filename=composer --version=2.10.0 && \
+    php composer-setup.php --install-dir=/usr/local/bin --filename=composer --version=2.10.2 && \
     php -r "unlink('composer-setup.php');"
 
 WORKDIR /var/www/html
@@ -23,7 +23,7 @@ FROM base AS dev
 
 COPY ./php/php.ini /usr/local/etc/php/conf.d/
 COPY ./php/99-xdebug.ini /usr/local/etc/php/conf.d/
-RUN pecl install xdebug-3.5.1 && docker-php-ext-enable xdebug
+RUN pecl install xdebug-3.5.3 && docker-php-ext-enable xdebug
 
 # don't run as root
 USER www-data
