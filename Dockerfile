@@ -1,5 +1,5 @@
 # prod is default
-FROM php:8.5.9-fpm-trixie@sha256:32ef9f35b567a741f24c5d2c3312f803fe6c9e34b7db46212f95fce675e1d13f AS base
+FROM php:8.5.11-fpm-trixie@sha256:e66e7f7f8d39a5aec21c6eec94d03d1b19aad8d0471d6d9fb994df50a24a963a AS base
 
 RUN apt-get update && \
     apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev libwebp-dev libicu-dev libzip-dev unzip
