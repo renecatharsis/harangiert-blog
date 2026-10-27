@@ -16,15 +16,15 @@ Documentation on how to install Docker and docker-compose is not included here.
 
 * run `cp .env.dist .env` and adjust settings as you wish
 * run `docker compose up -d --build`
-* run `docker exec -it harangiert_php composer install`
+* run `docker run --rm -v "$(pwd)/app":/opt/app -w /opt/app composer:2.10.2 bash -c "composer install"`
 * run `docker exec -it harangiert_php php bin/adminconsole doctrine:database:create --if-not-exists`
 * run `docker exec -it harangiert_php php bin/adminconsole sulu:build dev`
 * run `docker exec -it harangiert_php php bin/adminconsole assets:install`
-* run `cd app/assets/admin && nvm use && corepack prepare pnpm@10.33.3 --activate && corepack enable && pnpm install`
-* run `cd app/assets/website && nvm use && corepack prepare pnpm@10.33.3 --activate && corepack enable && pnpm install`
+* run `cd app/assets/admin && nvm use && corepack prepare pnpm@12.15.0 --activate && corepack enable && pnpm install`
+* run `cd app/assets/website && nvm use && corepack prepare pnpm@12.15.0 --activate && corepack enable && pnpm install`
 * watch frontend changes
-  * run `cd app/assets/admin && nvm use && corepack prepare pnpm@10.33.3 --activate && corepack enable && pnpm run watch`
-  * run `cd app/assets/website && nvm use && corepack prepare pnpm@10.33.3 --activate && corepack enable && pnpm run dev`
+  * run `cd app/assets/admin && nvm use && corepack prepare pnpm@12.15.0 --activate && corepack enable && pnpm run watch`
+  * run `cd app/assets/website && nvm use && corepack prepare pnpm@12.15.0 --activate && corepack enable && pnpm run dev`
 
 After you've finished the installation, you only need to run `docker compose up -d`
 when booting the project another time.
