@@ -23,7 +23,7 @@ docker run --rm \
   -v "$(pwd)/app":/opt/app \
   -w /opt/app/assets/website \
   "$NODE" \
-  bash -c "corepack prepare pnpm@10.34.7 --activate && corepack enable && pnpm install && pnpm build && rm -rf node_modules"
+  bash -c "corepack prepare pnpm@12.15.0 --activate && corepack enable && pnpm install && pnpm build && rm -rf node_modules"
 
 # remove local composer vendor directory
 rm -rf app/vendor/
